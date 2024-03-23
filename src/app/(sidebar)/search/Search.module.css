@@ -1,0 +1,131 @@
+.search {
+  text-align: center;
+  min-height: 100vh;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.search .container {
+  padding: 2rem 2rem 6.1rem;
+  margin: 0 auto;
+  width: 100%;
+}
+.search .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem 0 2rem;
+}
+.search .plus {
+  border-radius: 50%;
+  padding: 0 6px;
+  background: rgb(250, 250, 250);
+  color: rgb(250, 158, 49);
+}
+.search .block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+}
+.search .btns {
+  display: flex;
+  width: 100%;
+  max-width: 30rem;
+  background: rgb(255, 246, 222);
+  border-radius: 6.2rem;
+  padding: 10px;
+}
+.search .btn {
+  background: transparent;
+  color: rgb(52, 52, 52);
+  border-radius: 6.2rem;
+  font-weight: 500;
+  line-height: 1.75rem;
+  padding: 0.5rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  transition: all 0.3s;
+}
+.search .btn_active {
+  background: rgb(250, 158, 49);
+  color: rgb(250, 250, 250);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.search .btn:hover {
+  transform: scale(102%);
+}
+.search .addBtn {
+  width: 100%;
+  max-width: 30rem;
+}
+.search .cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.search .text {
+  text-align: left;
+  color: rgb(102, 102, 102);
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  margin: 1rem 0 1.5rem;
+}
+.search__input {
+  background: rgb(237, 237, 237);
+  flex-grow: 1;
+  border: 1px solid transparent;
+  outline: none;
+  border-radius: 40px;
+  padding: 16px 24px;
+  width: 100%;
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: rgb(52, 52, 52);
+}
+.search__input::placeholder {
+  color: rgb(102, 102, 102);
+}
+.search__input:focus {
+  border: 1px solid rgb(250, 158, 49);
+}
+.search .label {
+  position: relative;
+  width: 100%;
+}
+.search .icon {
+  position: absolute;
+  right: 1.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: rgb(138, 138, 138);
+  cursor: pointer;
+}
+.search .icon:hover {
+  font-size: 26px;
+  color: rgb(250, 158, 49);
+}
+
+.modal {
+  max-width: 544px;
+}
+
+.search__input:focus + .icon {
+  color: rgb(250, 158, 49);
+}
+
+.skeleton {
+  width: calc(25% - 0.9rem) !important;
+  height: 16rem !important;
+}
+
+.skeletonUsers {
+  width: 13.1rem !important;
+  height: 200px !important;
+}
+
+/*# sourceMappingURL=Search.module.css.map */

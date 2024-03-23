@@ -1,0 +1,55 @@
+.confirmation {
+  padding: 5rem 0;
+  text-align: center;
+}
+.confirmation .title {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  font-weight: 500;
+}
+.confirmation .subtitle {
+  font-size: 1.2rem;
+  line-height: 2.3rem;
+  font-weight: 500;
+  max-width: 700px;
+  margin: 1rem 0 2rem;
+}
+.confirmation .text {
+  font-size: 1.2rem;
+  line-height: 1.7rem;
+  font-weight: 500;
+}
+.confirmation .button {
+  background: rgb(250, 158, 49);
+  color: rgb(255, 255, 255);
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  padding: 16px;
+  width: 100%;
+  max-width: 32rem;
+  margin-top: 1rem;
+}
+.confirmation .button:hover {
+  background: rgb(255, 255, 69);
+}
+
+.modal {
+  max-width: 544px;
+  left: 50% !important;
+}
+
+.content {
+  padding: 1.2rem 2.7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  row-gap: 24px;
+  border-radius: 32px;
+}
+
+/*# sourceMappingURL=Confirmation.module.css.map */

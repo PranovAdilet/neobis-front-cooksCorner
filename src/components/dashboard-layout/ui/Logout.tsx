@@ -1,7 +1,7 @@
 import React from 'react';
 import ModalContainer from "@/components/modal-container/ModalContainer";
 import styles from "@/components/dashboard-layout/dashboard-sidebar/Sidebar.module.scss";
-import {LogoutButton} from "@/components/dashboard-layout/LogoutButton";
+import {LogoutButton} from "@/components/dashboard-layout/ui/LogoutButton";
 import Title from "@/components/ui/title/Title";
 
 interface IProps{

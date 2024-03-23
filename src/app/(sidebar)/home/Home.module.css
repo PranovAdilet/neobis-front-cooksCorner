@@ -1,0 +1,97 @@
+.home {
+  background: #FFFFFF;
+}
+.home .content {
+  padding: 2rem 2rem 8.3rem;
+}
+.home .title {
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 2.3rem;
+  color: rgb(52, 52, 52);
+  margin-bottom: 4rem;
+}
+.home .text {
+  font-size: 1.5rem;
+  line-height: 2.3rem;
+  color: rgb(52, 52, 52);
+  font-weight: 500;
+}
+.home .list {
+  display: flex;
+  column-gap: 4rem;
+  margin: 1.5rem 0 1.4rem;
+}
+.home .list .item {
+  position: relative;
+  font-weight: 600;
+  line-height: 1rem;
+  color: rgb(102, 102, 102);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.home .list .item:before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 0;
+  border-bottom: 2px solid rgb(52, 52, 52);
+  border-radius: 100px;
+  transform: translateX(-50%);
+  transition: all 0.3s;
+  border-bottom: 3px solid rgb(52, 52, 52);
+}
+.home .list .item:hover {
+  color: rgb(52, 52, 52);
+  transform: translateY(-2px);
+}
+.home .list .item_active {
+  color: rgb(52, 52, 52);
+}
+.home .list .item_active:before {
+  bottom: -5px;
+  width: 35px;
+  border-bottom: 2.39px solid rgb(52, 52, 52);
+}
+.home .cards {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.home .image {
+  object-fit: cover;
+  width: 100%;
+}
+.home .card {
+  width: calc(25% - 0.8rem);
+  position: relative;
+}
+.home .card__block {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  color: rgb(255, 255, 255);
+}
+.home .card__title {
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.9rem;
+}
+.home .card__author {
+  font-weight: 400;
+  font-size: 0.8rem;
+  line-height: 1.1rem;
+  margin: 0.3rem 0 0.5rem;
+}
+.home .card__bottom {
+  display: flex;
+  align-items: center;
+  column-gap: 0.2rem;
+}
+.home .card__icon {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=Home.module.css.map */

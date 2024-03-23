@@ -38,11 +38,11 @@ export function useAddReply(
         mutationKey: [KEYS.addReply],
         mutationFn: reviewsService.addReply,
         async onSuccess(){
+            console.log(2)
             toast.success('Сomment has been added')
-            await queryClient.invalidateQueries(KEYS.comments as InvalidateQueryFilters)
-            await queryClient.invalidateQueries(KEYS.getReply as InvalidateQueryFilters)
             queryClient.clear();
             setText('')
+            console.log(1)
 
         },
         onError(error){
@@ -61,6 +61,8 @@ export function useAddReply(
             return reviewsService.addReply(newData)
         },
         isLoading: addComment.isPending,
-        error: addComment.error
+        error: addComment.error,
+        isSuccess: addComment.isSuccess,
+        isError: addComment.isError
     };
 }

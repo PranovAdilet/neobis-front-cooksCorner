@@ -1,0 +1,92 @@
+.profile .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3.5rem 2rem 8.3rem;
+}
+.profile .content {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.7rem;
+}
+.profile .content__info {
+  text-align: center;
+  width: 35.18rem;
+  padding: 0 2.5rem;
+}
+.profile .image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.profile .name {
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.75rem;
+  margin: 1rem 0 0.35rem;
+}
+.profile .info {
+  display: flex;
+  justify-content: center;
+  column-gap: 1.1rem;
+}
+.profile .info__text {
+  color: rgb(102, 102, 102);
+}
+.profile .info__count {
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+}
+.profile .text {
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: rgb(102, 102, 102);
+  margin-bottom: 1.2rem;
+}
+.profile .btn {
+  width: 100%;
+  background: rgb(255, 246, 222);
+  border-radius: 10px;
+  color: rgb(250, 158, 49);
+  font-weight: 500;
+  line-height: 1.1rem;
+  border: none;
+  outline: none;
+  padding: 19px 0;
+}
+.profile .cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.profile .category {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.2rem;
+}
+.profile .category__text {
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  color: rgb(138, 138, 138);
+  cursor: pointer;
+  transition: all 0.1s;
+}
+.profile .category__text:hover {
+  transform: scale(101%);
+}
+.profile .category__text_active {
+  color: rgb(52, 52, 52);
+}
+
+.modal {
+  max-width: 544px;
+}
+
+/*# sourceMappingURL=Profile.module.css.map */

@@ -1,11 +1,17 @@
 import React from 'react';
+import {Heading} from "@/components/ui/Heading";
+import Register from "@/app/auth/register/Register";
 
-const Register = () => {
+
+
+const RegisterPage = () => {
+
     return (
         <div>
-            register
+            <Heading text="Sign up for delicious " title="Discoveries!"/>
+            <Register/>
         </div>
     );
 };
 
-export default Register;
+export default RegisterPage;

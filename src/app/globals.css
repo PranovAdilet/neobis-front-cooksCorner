@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  font-family: var(--font-poppins), sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: #FFFFFF;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+@media (min-width: 1201px) {
+  body {
+    font-size: 16px;
+  }
+}
+@media (max-width: 1200px) {
+  body {
+    font-size: 16px;
+  }
+}
+@media (max-width: 992px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+.title {
+  font-size: 1.5rem;
+  line-height: 2.3rem;
+  color: rgb(52, 52, 52);
+  font-weight: 600;
+}
+
+.container {
+  padding: 2rem 2rem 8rem;
+  margin: 0 auto;
+}
+
+@media (hover: none) {
+  .button:active {
+    background-color: rgb(250, 158, 49);
+  }
+}
+@media (hover: hover) {
+  .button:hover {
+    background-color: rgb(250, 158, 49);
+  }
+}
+.button {
+  background: rgb(250, 158, 49);
+  color: rgb(255, 255, 255);
+  outline: none;
+  border: none;
+  border-radius: 2.5rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  padding: 16px;
+  width: 100%;
+  max-width: 32rem;
+}
+.button:hover {
+  background: rgb(255, 198, 59);
+}
+.button:disabled {
+  color: rgb(250, 250, 250);
+  background: rgb(138, 138, 138);
+  pointer-events: none;
+}
+
+.loader {
+  animation: rotate 1.5s linear infinite;
+  font-size: 1.7rem;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  display: none;
+}
+
+/*# sourceMappingURL=globals.css.map */

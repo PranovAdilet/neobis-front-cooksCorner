@@ -25,15 +25,49 @@
     display: flex;
     column-gap: 4rem;
 
-    margin: 1.5rem 0 1.2rem;
+    margin: 1.5rem 0 1.4rem;
 
-    li{
-      font-weight: 500;
+    .item{
+      position: relative;
+      font-weight: 600;
       line-height: 1rem;
 
       color: rgb(102, 102, 102);
 
       cursor: pointer;
+
+
+      transition: all .25s;
+      &:before{
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+
+        width: 0;
+
+        border-bottom: 2px solid rgb(52, 52, 52);
+        border-radius: 100px;
+
+        transform: translateX(-50%);
+        transition: all .3s;
+        border-bottom: 3px solid rgb(52, 52, 52);
+
+      }
+      &:hover{
+        color: rgb(52, 52, 52);
+        transform: translateY(-2px);
+      }
+
+      &_active{
+        color: rgb(52, 52, 52);
+
+          &:before{
+            bottom: -5px;
+            width: 35px;
+            border-bottom: 2.39px solid rgb(52, 52, 52);
+          }
+      }
     }
   }
 

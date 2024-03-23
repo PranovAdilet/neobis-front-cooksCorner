@@ -2,7 +2,7 @@ import styles from "./Card.module.scss";
 import Image from "next/image";
 import {IRecipe} from "@/types/recipes.types";
 import Link from "next/link";
-import ToggleButtons from "@/components/toggleBookmarkAndLikeButtons/ToggleButtons";
+import ToggleButtons from "@/components/ui/toggleBookmarkAndLikeButtons/ToggleButtons";
 import {IFollower} from "@/types/auth.types";
 import avatar from '@/../public/user.jpg'
 import {ROUTES} from "@/config/pages-url.config";

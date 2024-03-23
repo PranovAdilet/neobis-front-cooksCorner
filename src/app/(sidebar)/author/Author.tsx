@@ -1,0 +1,109 @@
+'use client'
+
+import Image from "next/image";
+import check from '@/../public/check.svg'
+import styles from './Author.module.scss'
+import avatar from '@/../public/user.jpg'
+import {useProfile, useRecipesUser} from "@/hooks/user/useProfile";
+import {useParams, useRouter} from "next/navigation";
+import Card from "@/components/card/Card";
+import {useFollow} from "@/hooks/user/useFollow";
+import {Button} from "@/components/ui/button/Button";
+import {IFollowData} from "@/types/user.types";
+import {AuthTokensService} from "@/services/auth-token.service";
+import {DASHBOARD_PAGES} from "@/config/pages-url.config";
+import clsx from "clsx";
+import {useState} from "react";
+import Loader from "@/components/ui/loader/Loader";
+import UserInfo from "@/app/(sidebar)/author/UserInfo";
+import Skeletons from "@/components/ui/skeleton/Skeletons";
+
+
+const Author = () => {
+    const {id} = useParams()
+
+
+    const {data, isSuccess, isLoading : isLoadingProfile} = useProfile(+id || 0)
+    const {data: recipes, isLoading: isRecipesLoading} = useRecipesUser(+id || 0)
+    const {mutate, isLoading} = useFollow()
+
+    const userId = AuthTokensService.getUserId()
+    const {push} = useRouter()
+
+    const [isFollow, setIsFollow] = useState(data?.isFollowed)
+
+    const handleFollow = () => {
+        if (+userId === data?.userId){
+            push(DASHBOARD_PAGES.PROFILE)
+            return
+        }
+
+        const isFollowed = data?.isFollowed ? "unfollow" : "follow"
+        const newData: IFollowData = {
+            id: +data!.userId,
+            type: isFollowed
+        }
+        mutate(newData)
+        setIsFollow(prev => !prev)
+    }
+
+    const isMe = () => {
+        if (+userId === data?.userId){
+            return 'Go to profile'
+        }
+       return "Follow"
+    }
+
+    return (
+        <section className={styles.author}>
+            {
+                isLoadingProfile && <Loader/>
+            }
+            <div className={styles.container}>
+                {
+                    data && <div className={styles.content}>
+                        <Image src={data.imageUrl || avatar} width={160} height={160} className={styles.image} priority={true} alt="avatar"/>
+                        <h4 className={styles.name}>{data.name}</h4>
+
+                        <UserInfo data={data}/>
+
+                        <p className={styles.text}>{data.bio}</p>
+                        {
+                            !isFollow &&
+
+                            <Button onClick={handleFollow}
+                                disabled={isLoading}
+                                className={styles.btn}>
+                                {isMe()}
+                            </Button>}
+                        {
+                            isFollow &&
+
+                            <Button
+                                onClick={handleFollow}
+                                disabled={isLoading}
+                                className={clsx(styles.btn_active, styles.btn)}
+                            >
+                                Followed
+                                <Image src={check} width={25} height={25} alt="icon_check"/>
+                            </Button>
+                        }
+                    </div>
+                }
+
+                <div className={styles.cards}>
+                    {
+                        isRecipesLoading && <Skeletons count={8} className=""/>
+                    }
+                    {
+                        recipes?.map(item => (
+                            <Card key={item.recipeId} item={item} type="big"/>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default Author;

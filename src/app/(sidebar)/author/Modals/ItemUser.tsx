@@ -2,14 +2,11 @@ import React from 'react';
 import {IFollower} from "@/types/auth.types";
 import styles from './Modal.module.scss'
 import Image from "next/image";
-import avatar from '@/../public/user.jpg'
+import avatar from '../../../../../public/user.jpg'
 import {Button} from "@/components/ui/button/Button";
 import clsx from "clsx";
 import Link from "next/link";
-import {DASHBOARD_PAGES, ROUTES} from "@/config/pages-url.config";
-import {useFollow} from "@/hooks/user/useFollow";
-import {IFollowData} from "@/types/user.types";
-import {AuthTokensService} from "@/services/auth-token.service";
+import {ROUTES} from "@/config/pages-url.config";
 import {useRouter} from "next/navigation";
 
 interface IProps{

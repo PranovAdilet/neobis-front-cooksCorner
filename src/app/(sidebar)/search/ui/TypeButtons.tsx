@@ -1,7 +1,7 @@
 import React, {Dispatch, SetStateAction, useState} from 'react';
 import styles from "@/app/(sidebar)/search/Search.module.scss";
 import {Button} from "@/components/ui/button/Button";
-import {IType} from "@/app/(sidebar)/search/search.interface";
+import {IType} from "@/app/(sidebar)/search/types/search.interface";
 import clsx from "clsx";
 
 interface IProps{

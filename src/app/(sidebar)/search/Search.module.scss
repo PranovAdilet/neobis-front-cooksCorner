@@ -38,9 +38,6 @@
     column-gap: 10px;
   }
 
-  .icon{
-    top: 10%;
-  }
 
   .btns{
     display: flex;
@@ -52,6 +49,7 @@
     border-radius: 6.2rem;
 
     padding: 10px;
+
 
 
   }
@@ -72,26 +70,16 @@
     border: none;
     outline: none;
 
+    transition: all .3s;
+
     &_active{
       background: rgb(250, 158, 49);
       color: rgb(250, 250, 250);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-  }
-  .button{
-    background: rgb(250, 158, 49);
-    color: rgb(250, 250, 250);
-
-    outline: none;
-    border: none;
-    border-radius: 2.5rem;
-
-    font-weight: 500;
-    line-height: 1.5rem;
-
-    padding: 16px;
-
-    width: 100%;
-    max-width: 32rem;
+    &:hover{
+      transform: scale(102%);
+    }
   }
 
   .addBtn{
@@ -113,10 +101,68 @@
     font-size: 0.9rem;
     line-height: 1.3rem;
 
-    margin-bottom: 1.5rem;
+    margin: 1rem 0 1.5rem;
+  }
+
+  &__input{
+    background: rgb(237, 237, 237);
+
+    flex-grow: 1;
+
+    border: 1px solid transparent;
+    outline: none;
+    border-radius: 40px;
+
+    padding: 16px 24px;
+    width: 100%;
+
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: rgb(52, 52, 52);
+
+    &::placeholder{
+      color: rgb(102, 102, 102);
+    }
+    &:focus{
+      border: 1px solid rgb(250, 158, 49);
+    }
+  }
+  .label{
+    position: relative;
+    width: 100%;
+  }
+  .icon{
+    position: absolute;
+    right: 1.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+    font-size: 24px;
+    color: rgb(138, 138, 138);
+
+    cursor: pointer;
+
+    &:hover{
+      font-size: 26px;
+      color: rgb(250, 158, 49);
+    }
   }
 }
 
 .modal{
   max-width: 544px;
+}
+
+.search__input:focus + .icon{
+  color: rgb(250, 158, 49);
+}
+
+
+.skeleton{
+  width: calc(25% - 0.9rem) !important;
+  height: 16rem !important;
+}
+.skeletonUsers{
+  width: 13.1rem !important;
+  height: 200px !important;
 }

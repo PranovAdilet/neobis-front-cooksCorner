@@ -1,16 +1,19 @@
 import React, {useState} from 'react';
 import styles from "@/components/comments/Comments.module.scss";
-import {BiSolidDislike, BiSolidLike} from "react-icons/bi";
-import AddReplyForm from "@/components/comments/AddReplyForm";
-import {MdOutlineKeyboardArrowDown} from "react-icons/md";
 import {IComment} from "@/types/comments.types";
 import Image from "next/image";
-import avatar from "../../../public/user.jpg";
-import Replies from "@/components/comments/Replies";
+import avatar from "@/../public/user.jpg";
+import LikeButtons from "@/components/comments/ui/LikeButtons";
+import {formatElapsedTime} from "@/utils/date";
+import AddComment from "@/components/comments/ui/AddComment";
+import {AuthTokensService} from "@/services/auth-token.service";
+
 
 const ReplyItem = ({item} : {item: IComment}) => {
     const [isReply, setIsReply] = useState(false)
+    const date = formatElapsedTime(item.createdAt)
     const handleOpen = () => setIsReply(true)
+    const token = AuthTokensService.getAccessToken()
 
     return (
         <div className={styles.reply}>
@@ -20,18 +23,21 @@ const ReplyItem = ({item} : {item: IComment}) => {
             <div className={styles.content}>
                 <div className={styles.content__top}>
                     <h4 className={styles.replyAuthor}>{item.author}</h4>
-                    <p className={styles.replyTime}>5 min ago</p>
+                    <p className={styles.replyTime}>{date}</p>
                 </div>
                 <p className={styles.replyText}>{item.text}</p>
                 <div className={styles.content__bottom}>
-                    <div className={styles.icons}>
-                        <span className={styles.icon}><BiSolidLike/></span>
-                        <span className={styles.icon}><BiSolidDislike/></span>
-                    </div>
-                    <button onClick={handleOpen} type="button" className={styles.replyBtn}>Reply</button>
+                    <LikeButtons isLiked={item.isLiked} likes={item.likeCount} commentId={item.commentId}/>
+                    <button disabled={!token} onClick={handleOpen} type="button" className={styles.button}>Reply</button>
                 </div>
-                <AddReplyForm id={item.commentId} isReply={isReply} setIsReply={setIsReply}/>
-
+                <AddComment recipeId={3} type="reply" placeholder="Enter a reply" id={item.commentId} isReply={isReply} setIsReply={setIsReply}/>
+                {/*{*/}
+                {/*    item.replyCount > 0 && <button onClick={handleComments} className={styles.repliesBtn}>*/}
+                {/*        <span className={styles.replies__icon}>*/}
+                {/*            {!comments ? <MdOutlineKeyboardArrowDown/> : <MdKeyboardArrowUp/>}*/}
+                {/*        </span>{item.replyCount} replies*/}
+                {/*    </button>*/}
+                {/*}*/}
                 {/*<Replies id={item.commentId} isReply={comments} setIsReply={setComments}/>*/}
             </div>
         </div>

@@ -1,7 +1,7 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
 import styles from "@/components/comments/Comments.module.scss";
 import Image from "next/image";
-import avatar from "../../../public/user.jpg";
+import avatar from "../../../../public/user.jpg";
 import clsx from "clsx";
 import {useAddReply} from "@/hooks/user/useComment";
 import {Button} from "@/components/ui/button/Button";

@@ -5,13 +5,13 @@
         align-items: center;
         flex-direction: column;
 
-        padding: 3.5rem 2rem 8.3rem;
+        padding: 3.5rem 0 8.3rem 2rem;
     }
 
     .content{
         text-align: center;
 
-        max-width: 480px;
+        width: 30rem;
 
         display: flex;
         flex-direction: column;
@@ -19,7 +19,11 @@
         align-items: center;
     }
     .image{
-        max-width: 160px;
+        width: 160px;
+        height: 160px;
+
+        object-fit: cover;
+        border-radius: 12px;
     }
 
     .name{
@@ -27,7 +31,7 @@
         font-size: 1.1rem;
         line-height: 1.75rem;
 
-        margin: 1rem 0 2rem;
+        margin: 1.2rem 0 2.2rem;
     }
 
     .info{
@@ -66,7 +70,32 @@
         outline: none;
 
         padding: 14px 0;
+
+        transition: all .2s;
+
+        &:hover{
+            background: rgb(270, 198, 59);
+        }
+        &_active{
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 0.7rem;
+
+            color: rgb(270, 198, 59);
+            background: #1E1E1E;
+            border: 2px solid #FA9E31;
+
+            transition: all .2s;
+
+            &:hover{
+                background: rgb(250, 250, 250);
+            }
+
+        }
     }
+
 
     .cards{
         display: flex;
@@ -75,4 +104,11 @@
 
         margin-top: 2rem;
     }
+}
+
+.modal{
+    overflow: scroll !important;
+
+    max-width: 444px;
+    max-height: 400px !important;
 }

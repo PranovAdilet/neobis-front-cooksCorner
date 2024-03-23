@@ -1,5 +1,5 @@
 import React, {ChangeEvent} from 'react';
-import styles from "./Search.module.scss";
+import styles from "../Search.module.scss";
 import {CiSearch} from "react-icons/ci";
 import { IoCloseCircleOutline } from "react-icons/io5";
 

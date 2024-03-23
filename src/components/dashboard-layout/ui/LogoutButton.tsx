@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction} from 'react';
+import React from 'react';
 import {useRouter} from "next/navigation";
 import {useMutation} from "@tanstack/react-query";
 import {authService} from "@/services/auth.service";

@@ -1,0 +1,102 @@
+.recipe {
+  padding: 2rem;
+  position: relative;
+}
+.recipe .content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem;
+}
+.recipe .subtitle {
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  text-align: left;
+  margin: 0 0 0.5rem;
+  color: rgb(102, 102, 102);
+}
+.recipe .button {
+  margin-left: 1px;
+  margin-top: 1.2rem;
+}
+.recipe .area {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  background: rgb(237, 237, 237);
+  color: rgb(138, 138, 138);
+  padding: 1.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+.recipe .area::placeholder {
+  color: rgb(138, 138, 138);
+}
+.recipe .ingredients {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+}
+.recipe .title {
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+.recipe .plus {
+  background: rgb(250, 158, 49);
+  border-radius: 50%;
+  color: rgb(250, 250, 250);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.6rem;
+  height: 2.35rem;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.recipe .difficulty {
+  display: flex;
+  column-gap: 0.5rem;
+}
+.recipe .difficulty__item {
+  background: rgb(237, 237, 237);
+  border-radius: 100px;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.recipe .difficulty__item_active {
+  background: rgb(250, 158, 49);
+  color: rgb(237, 237, 237);
+}
+.recipe .difficulty__item:hover {
+  background: rgb(250, 158, 49);
+  color: rgb(237, 237, 237);
+}
+.recipe .close {
+  position: absolute;
+  top: 2rem;
+  right: 2.2rem;
+  font-size: 2.1rem;
+  cursor: pointer;
+}
+.recipe .close:hover {
+  transform: scale(107%);
+}
+.recipe .field {
+  width: 300px;
+}
+.recipe .icon {
+  position: absolute;
+  top: 50%;
+  right: 0.4rem;
+  transform: translateY(-50%);
+  font-size: 20px;
+  pointer-events: none;
+}
+
+/*# sourceMappingURL=CreateRecipe.module.css.map */

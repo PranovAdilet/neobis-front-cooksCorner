@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {IComment} from "@/types/comments.types";
 import Image from "next/image";
-import avatar from "@/../public/user.jpg"
-import styles from './Comments.module.scss'
+import avatar from "../../../../public/user.jpg"
+import styles from '../Comments.module.scss'
 import {MdOutlineKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import Replies from "@/components/comments/Replies/Replies";
-import LikeButtons from "@/components/comments/LikeButtons";
+import LikeButtons from "@/components/comments/ui/LikeButtons";
 import {formatElapsedTime} from "@/utils/date";
-import AddComment from "@/components/comments/AddComment";
+import AddComment from "@/components/comments/ui/AddComment";
 import {AuthTokensService} from "@/services/auth-token.service";
 
 interface IProps{
