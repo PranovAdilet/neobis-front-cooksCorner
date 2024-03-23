@@ -23,7 +23,8 @@ const CreateRecipe = ({setIsOpen} : {setIsOpen : (state: boolean) => void}) => {
     const {handleSubmit,
         isLoading, register ,
         isValid}
-        = useCreateRecipe(image, difficulty, category)
+        = useCreateRecipe({image,
+        difficulty, category})
 
 
     return (

@@ -11,6 +11,7 @@ import {useProfile} from "@/hooks/user/useProfile";
 import {useParams} from "next/navigation";
 import Recipes from "@/app/(sidebar)/profile/Recipes";
 import Loader from "@/components/ui/loader/Loader";
+import UserInfo from "@/app/(sidebar)/author/UserInfo";
 
 const Profile = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -39,18 +40,7 @@ const Profile = () => {
                                priority={true} alt="avatar"/>
                         <div className={styles.content__info}>
                             <div className={styles.info}>
-                                <div>
-                                    <p className={styles.info__count}>{data.recipes}</p>
-                                    <p className={styles.info__text}>recipe</p>
-                                </div>
-                                <div>
-                                    <p className={styles.info__count}>{data.followers}</p>
-                                    <p className={styles.info__text}>Followers</p>
-                                </div>
-                                <div>
-                                    <p className={styles.info__count}>{data.following}</p>
-                                    <p className={styles.info__text}>Following</p>
-                                </div>
+                                <UserInfo data={data}/>
                             </div>
                             <h4 className={styles.name}>{data.name}</h4>
 

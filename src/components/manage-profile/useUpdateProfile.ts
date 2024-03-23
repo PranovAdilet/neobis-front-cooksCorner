@@ -10,7 +10,6 @@ import {KEYS} from "@/constants/query-keys.constants";
 
 export function useUpdateProfile(userId : number, image: File | null) {
 
-    const router = useRouter();
     const queryClient = useQueryClient()
 
     const { register,
@@ -20,7 +19,7 @@ export function useUpdateProfile(userId : number, image: File | null) {
 
 
     const signInMutation = useMutation({
-        mutationKey: ['updateProfile'],
+        mutationKey: [KEYS.updateProfile],
         mutationFn: userService.updateProfile,
         onSuccess(){
             queryClient.invalidateQueries(KEYS.profile as InvalidateQueryFilters)
@@ -29,6 +28,7 @@ export function useUpdateProfile(userId : number, image: File | null) {
 
         },
         onError(error){
+            reset()
             console.log(error)
             toast.error('Updating is failed')
         }

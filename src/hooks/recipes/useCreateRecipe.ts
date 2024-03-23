@@ -8,9 +8,13 @@ import {recipesService} from "@/services/recipes.service";
 import {TypeRecipesCreate} from "@/types/recipes.types";
 import {KEYS} from "@/constants/query-keys.constants";
 
-export function useCreateRecipe(image: File | null, difficulty: string, category: string) {
+interface ICreateRecipeProps{
+    image: File | null
+    difficulty: string
+    category: string
+}
 
-    const router = useRouter();
+export function useCreateRecipe({image,difficulty, category }: ICreateRecipeProps) {
 
     const { register,
         watch,
@@ -27,6 +31,7 @@ export function useCreateRecipe(image: File | null, difficulty: string, category
             reset();
         },
         onError(error){
+            reset()
             console.log(error)
             toast.error('Creating is failed')
         }

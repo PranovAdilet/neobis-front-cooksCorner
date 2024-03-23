@@ -14,5 +14,6 @@ export const KEYS = {
     getReply: 'getReply',
     follow: 'follow',
     followers: 'followers',
-    following: 'following'
+    following: 'following',
+    updateProfile: "updateProfile"
 }

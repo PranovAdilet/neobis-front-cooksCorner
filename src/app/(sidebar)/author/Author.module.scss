@@ -34,20 +34,7 @@
         margin: 1.2rem 0 2.2rem;
     }
 
-    .info{
-        display: flex;
-        column-gap: 24px;
 
-        &__text{
-            color: rgb(102, 102, 102);
-        }
-        &__count{
-            font-weight: 500;
-            font-size: 1.5rem;
-            line-height: 1.75rem;
-        }
-
-    }
     .text{
         font-weight: 400;
         line-height: 1.5rem;
@@ -111,4 +98,19 @@
 
     max-width: 444px;
     max-height: 400px !important;
+}
+
+.info{
+    display: flex;
+    column-gap: 24px;
+
+    &__text{
+        color: rgb(102, 102, 102);
+    }
+    &__count{
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+    }
+
 }

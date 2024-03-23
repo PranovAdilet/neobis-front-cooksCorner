@@ -25,18 +25,6 @@
   line-height: 1.75rem;
   margin: 1.2rem 0 2.2rem;
 }
-.author .info {
-  display: flex;
-  column-gap: 24px;
-}
-.author .info__text {
-  color: rgb(102, 102, 102);
-}
-.author .info__count {
-  font-weight: 500;
-  font-size: 1.5rem;
-  line-height: 1.75rem;
-}
 .author .text {
   font-weight: 400;
   line-height: 1.5rem;
@@ -82,6 +70,19 @@
   overflow: scroll !important;
   max-width: 444px;
   max-height: 400px !important;
+}
+
+.info {
+  display: flex;
+  column-gap: 24px;
+}
+.info__text {
+  color: rgb(102, 102, 102);
+}
+.info__count {
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
 }
 
 /*# sourceMappingURL=Author.module.css.map */

@@ -17,6 +17,7 @@ const ManageProfile = ({setIsOpen, userId} : IProps) => {
     const {handleSubmit, register, isLoading, isValid, errors}
         = useUpdateProfile(userId || 0, image)
 
+
     return (
         <form onSubmit={handleSubmit} className={styles.profile}>
             <Title>Manage profile</Title>
