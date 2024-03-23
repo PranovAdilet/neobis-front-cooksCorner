@@ -9,7 +9,6 @@ import bookmarkedImage from '@/../public/bookmarked.svg'
 import cardLikeImage from '@/../public/cardLike.svg'
 import cardBookmarkImage from '@/../public/cardBook.svg'
 import Image from "next/image";
-import {AuthTokensService} from "@/services/auth-token.service";
 
 
 
@@ -25,7 +24,16 @@ interface IProps{
 const ToggleButtons = ({likes, isLiked, recipeId, isBookmarked, bookmarks, type} : IProps) => {
 
     const {mutate, isLoading} = useToggleActions('recipes')
-    const token = AuthTokensService.getAccessToken()
+
+    // из-за долгого изменения со стороны сервера добавил стейты, которые видит пользователь, когда ставит лайки
+
+    const [isLikedState, setIsLikedState] = useState(isLiked)
+    const [isBookmarkState, setIsBookmarkState] = useState(isBookmarked)
+
+    const [likesLength, setLikesLength] = useState(likes)
+    const [bookmarksLength, setBookmarksLength] = useState(bookmarks)
+
+
     const handleToggleLike: MouseEventHandler<HTMLButtonElement> = (event) => {
         event.preventDefault()
         if (!isLikedState){
@@ -61,32 +69,27 @@ const ToggleButtons = ({likes, isLiked, recipeId, isBookmarked, bookmarks, type}
     }
     const typeButtons = (value: string) =>  type === "detail" ? value : ''
 
-    const [isLikedState, setIsLikedState] = useState(isLiked)
-    const [isBookmarkState, setIsBookmarkState] = useState(isBookmarked)
 
-    const [likesLength, setLikesLength] = useState(likes)
-    const [bookmarksLength, setBookmarksLength] = useState(bookmarks)
-
-    const testType = (value: string, value2: string) => {
+    const typeImage = (image: string, image2: string) => { // В зависимости от типа, получаем нужный размер изображения
         if (type === "search"){
-            return value2
+            return image2
         }
 
         if ( type === "card"){
-            return value
+            return image
         }else {
-            return value2
+            return image2
         }
     }
 
     return (
         <div className={styles.likes}>
             <button
-                disabled={isLoading || !token}
+                disabled={isLoading}
                 onClick={handleToggleLike}
                 type="button" className={styles.likes__icon}>
                 <Image
-                    src={!isLikedState ? testType(cardLikeImage, likeImage) : likedImage}
+                    src={!isLikedState ? typeImage(cardLikeImage, likeImage) : likedImage}
                     alt="icon"
                     width={30}
                     height={30}
@@ -96,12 +99,12 @@ const ToggleButtons = ({likes, isLiked, recipeId, isBookmarked, bookmarks, type}
                 { likesLength > 0 && likesLength + typeButtons(' likes')}
             </p>
             <button
-                disabled={isLoading || !token}
+                disabled={isLoading}
                 onClick={handleToggleBookmark}
                 type="button"
                 >
                 <Image
-                    src={!isBookmarkState ? testType(cardBookmarkImage, bookmarkImage) : bookmarkedImage}
+                    src={!isBookmarkState ? typeImage(cardBookmarkImage, bookmarkImage) : bookmarkedImage}
                     alt="icon"
                     width={isBookmarkState ? 25 : 20}
                     height={isBookmarkState ? 25 : 20}

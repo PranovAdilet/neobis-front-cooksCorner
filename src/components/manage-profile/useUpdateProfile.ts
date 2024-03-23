@@ -3,9 +3,8 @@
 import {InvalidateQueryFilters, useMutation, useQueryClient} from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import {toast} from "react-toastify";
-import {useRouter} from "next/navigation";
 import {userService} from "@/services/user.service";
-import {TypeUpdateProfile} from "@/types/user.types";
+import {TypeResponseUpdateProfile, TypeUpdateProfile} from "@/types/user.types";
 import {KEYS} from "@/constants/query-keys.constants";
 
 export function useUpdateProfile(userId : number, image: File | null) {
@@ -15,10 +14,11 @@ export function useUpdateProfile(userId : number, image: File | null) {
     const { register,
         watch,
         handleSubmit,
-        reset, formState: { errors, isValid } } = useForm<TypeUpdateProfile>({mode: "onChange"});
+        reset, formState: { errors, isValid } }
+        = useForm<TypeResponseUpdateProfile>({mode: "onChange"});
 
 
-    const signInMutation = useMutation({
+    const updateMutation = useMutation({
         mutationKey: [KEYS.updateProfile],
         mutationFn: userService.updateProfile,
         onSuccess(){
@@ -34,15 +34,12 @@ export function useUpdateProfile(userId : number, image: File | null) {
         }
     });
 
-    const errorMessage = signInMutation.error ? "Updating is failed" : undefined;
-
-
     return {
         watch,
         register,
         errors,
+        reset,
         isValid,
-        errorMessage,
         handleSubmit: handleSubmit((data) => {
             const formData = new FormData();
 
@@ -50,8 +47,8 @@ export function useUpdateProfile(userId : number, image: File | null) {
             if (image) {
                 formData.append('image', image);
             }
-            signInMutation.mutate(formData)
+            updateMutation.mutate(formData)
         }),
-        isLoading: signInMutation.isPending,
+        isLoading: updateMutation.isPending,
     };
 }

@@ -26,6 +26,11 @@ export interface IIngredient{
     amount: number
     measureUnit: string
 }
+
+export interface TypeIngredients extends IIngredient{
+    id: number
+}
+
 export interface TypeRecipesCreate{
     image: string
     title: string

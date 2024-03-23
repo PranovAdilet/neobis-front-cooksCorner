@@ -8,7 +8,6 @@ import Replies from "@/components/comments/Replies/Replies";
 import LikeButtons from "@/components/comments/ui/LikeButtons";
 import {formatElapsedTime} from "@/utils/date";
 import AddComment from "@/components/comments/ui/AddComment";
-import {AuthTokensService} from "@/services/auth-token.service";
 
 interface IProps{
     item: IComment
@@ -22,7 +21,6 @@ const CommentItem = ({item, id} : IProps) => {
     const handleComments = () => setComments(!comments)
 
     const date = formatElapsedTime(item.createdAt)
-    const token = AuthTokensService.getAccessToken()
 
     return (
         <div className={styles.comment}>
@@ -38,22 +36,19 @@ const CommentItem = ({item, id} : IProps) => {
                 <div className={styles.content__bottom}>
                     <LikeButtons likes={item.likeCount} isLiked={item.isLiked} commentId={item.commentId}/>
                     <button
-                        disabled={!token}
                         onClick={handleOpen}
                         type="button"
                         className={styles.button}>
                         Reply
                     </button>
                 </div>
-                {
-                    token && <AddComment
-                        recipeId={+id} type="reply"
-                        placeholder="Enter a reply"
-                        id={item.commentId}
-                        isReply={isReply}
-                        setIsReply={setIsReply}
-                    />
-                }
+                <AddComment
+                    recipeId={+id} type="reply"
+                    placeholder="Enter a reply"
+                    id={item.commentId}
+                    isReply={isReply}
+                    setIsReply={setIsReply}
+                />
                 {
                     item.replyCount > 0 && <button onClick={handleComments} className={styles.repliesBtn}>
                         <span className={styles.replies__icon}>

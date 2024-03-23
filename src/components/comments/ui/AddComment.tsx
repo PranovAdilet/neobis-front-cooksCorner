@@ -6,6 +6,9 @@ import clsx from "clsx";
 import {useAddReply} from "@/hooks/user/useComment";
 import {Button} from "@/components/ui/button/Button";
 import Loader from "@/components/ui/loader/Loader";
+import {toast} from "react-toastify";
+import {InvalidateQueryFilters, useQueryClient} from "@tanstack/react-query";
+import {KEYS} from "@/constants/query-keys.constants";
 
 
 interface IProps{
@@ -43,15 +46,20 @@ const AddComment = ({isReply, setIsReply, id, type, placeholder, recipeId} : IPr
     })
     const newId = `${type === "comment" ? recipeId : id}`
 
+    const {mutate, isLoading} = useAddReply(newId, text, setText, type)
+    const queryClient = useQueryClient()
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         mutate()
+            .then(() => {
+                queryClient.invalidateQueries(KEYS.comments as InvalidateQueryFilters)
+                toast.success('Сomment has been added')
+            })
+                .catch(() => toast.error('Failed!'))
         setText('')
+
     }
-
-    const {mutate, isLoading} = useAddReply(newId, text, setText, type)
-
 
 
     return (

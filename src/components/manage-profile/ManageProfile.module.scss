@@ -48,7 +48,6 @@
     border-radius: 20px;
 
     background: rgb(237, 237, 237);
-    color: rgb(138, 138, 138);
 
     padding: 1.5rem;
 
@@ -61,6 +60,17 @@
     }
 
 
+  }
+
+  .error{
+    width: 100%;
+    color: red;
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: -3rem;
+    right: 20%;
+    transform: translateX(-30%);
+    z-index: 30;
   }
 
 

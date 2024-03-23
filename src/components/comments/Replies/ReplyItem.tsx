@@ -13,7 +13,6 @@ const ReplyItem = ({item} : {item: IComment}) => {
     const [isReply, setIsReply] = useState(false)
     const date = formatElapsedTime(item.createdAt)
     const handleOpen = () => setIsReply(true)
-    const token = AuthTokensService.getAccessToken()
 
     return (
         <div className={styles.reply}>
@@ -28,7 +27,7 @@ const ReplyItem = ({item} : {item: IComment}) => {
                 <p className={styles.replyText}>{item.text}</p>
                 <div className={styles.content__bottom}>
                     <LikeButtons isLiked={item.isLiked} likes={item.likeCount} commentId={item.commentId}/>
-                    <button disabled={!token} onClick={handleOpen} type="button" className={styles.button}>Reply</button>
+                    <button onClick={handleOpen} type="button" className={styles.button}>Reply</button>
                 </div>
                 <AddComment recipeId={3} type="reply" placeholder="Enter a reply" id={item.commentId} isReply={isReply} setIsReply={setIsReply}/>
                 {/*{*/}

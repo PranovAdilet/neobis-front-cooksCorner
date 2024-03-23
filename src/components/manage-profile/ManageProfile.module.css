@@ -35,7 +35,6 @@
   outline: none;
   border-radius: 20px;
   background: rgb(237, 237, 237);
-  color: rgb(138, 138, 138);
   padding: 1.5rem;
   font-size: 1rem;
   font-weight: 400;
@@ -43,6 +42,16 @@
 }
 .profile .area::placeholder {
   color: rgb(138, 138, 138);
+}
+.profile .error {
+  width: 100%;
+  color: red;
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: -3rem;
+  right: 20%;
+  transform: translateX(-30%);
+  z-index: 30;
 }
 
 /*# sourceMappingURL=ManageProfile.module.css.map */

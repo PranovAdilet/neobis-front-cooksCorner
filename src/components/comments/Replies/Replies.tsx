@@ -3,6 +3,7 @@ import styles from "../Comments.module.scss";
 import clsx from "clsx";
 import {useGetReplies} from "@/hooks/user/useComment";
 import ReplyItem from "@/components/comments/Replies/ReplyItem";
+import Loader from "@/components/ui/loader/Loader";
 
 interface IProps{
     isReply: boolean
@@ -12,8 +13,7 @@ interface IProps{
 
 const Replies = ({isReply, id} : IProps) => {
 
-    const {data, isSuccess, isLoading} = useGetReplies(id)
-
+    const {data, isLoading} = useGetReplies(id, isReply)
 
     const className = clsx({
         [styles.reply_none]: !isReply,
@@ -22,6 +22,9 @@ const Replies = ({isReply, id} : IProps) => {
 
     return (
         <div className={className}>
+            {
+                isLoading && <Loader/>
+            }
            <div className={styles.replies}>
                {
                    data && data.map(item => (

@@ -1,10 +1,10 @@
-import React, {MouseEventHandler, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "@/components/comments/Comments.module.scss";
 import {BiSolidDislike, BiSolidLike} from "react-icons/bi";
 import {useToggleActions} from "@/hooks/useToggleActions";
 import {TOGGLE_ACTIONS} from "@/constants/bookmarkAndLike.constants";
 import clsx from "clsx";
-import {AuthTokensService} from "@/services/auth-token.service";
+import {toast} from "react-toastify";
 
 interface IProps{
     likes: number
@@ -14,57 +14,60 @@ interface IProps{
 
 const LikeButtons = ({likes, isLiked, commentId} : IProps) => {
 
-    const {mutate, isLoading} = useToggleActions('comments')
-    const [isLikedState, setIsLikedState] = useState(isLiked)
-    const [isDislikeState, setIsDislikeState] = useState(false)
+    const {mutate, isLoading, isError} = useToggleActions('comments')
 
     const [likesLength, setLikesLength] = useState(likes)
+    const [action, setAction] = useState<number | null>(isLiked ? TOGGLE_ACTIONS.LIKE : null);
 
-    const token = AuthTokensService.getAccessToken()
+    const handleToggleAction = (event: React.MouseEvent<HTMLButtonElement>, newAction: number) => {
+        event.preventDefault();
 
-    const handleToggleLike: MouseEventHandler<HTMLButtonElement> = (event) => {
-        event.preventDefault()
+        if (isLoading) return;
 
-        if (!isLikedState){
-            setLikesLength(prev => prev + 1)
-            setIsDislikeState(false)
-            setIsLikedState(true)
-            const newData = formatKeysActions(TOGGLE_ACTIONS.LIKE)
-            mutate(newData)
-        }else {
-            setIsLikedState(false)
-            setLikesLength(prev => prev - 1)
-            const newData = formatKeysActions(TOGGLE_ACTIONS.DISLIKE)
-            mutate(newData)
+        if (action !== newAction) {  // проверяем равно ли предыдущее действие этому
+            const newData = formatKeysActions(newAction);
+            mutate(newData);
+            setAction(newAction); // устанавливаем новое действие
+            if (action === null && newAction === TOGGLE_ACTIONS.DISLIKE){ // если будет повторный дизлайк, то вернет prev
+                setLikesLength(prev => prev)
+                return;
+            }
+            //а иначе вернет либо +1 либо -1
+            setLikesLength(prev => newAction === TOGGLE_ACTIONS.LIKE ? prev + 1 : prev - 1);
+        } else {
+            if (newAction === TOGGLE_ACTIONS.LIKE && isLiked){ // если на момент входа у пользователя уже
+                // лайкнутый комментарий, то при повторном нажатии, запрос на дизлайк не срабатывает, поэтому делаем условие
+                const newData = formatKeysActions(TOGGLE_ACTIONS.DISLIKE);
+                mutate(newData);
+            }
+
+            setAction(null); // устанавливаем null, чтобы убрать и лайки и дизлайки, так как предыдущее действие равно этому
+            setLikesLength(prev => action === TOGGLE_ACTIONS.LIKE ? prev - 1 : prev )
+
         }
-    }
-    const handleToggleDislike: MouseEventHandler<HTMLButtonElement> = (event) => {
-        event.preventDefault()
-        if (isLikedState){
-            setIsDislikeState(true)
-            setIsLikedState(false)
-            setLikesLength(prev => prev - 1)
-            const newData = formatKeysActions(TOGGLE_ACTIONS.DISLIKE)
-            mutate(newData)
-        }else if (isDislikeState){
-            setIsDislikeState(false)
-        }else {
-            setIsDislikeState(true)
-        }
-    }
+    };
     const formatKeysActions = (actionId : number, objectId = TOGGLE_ACTIONS.COMMENT_ID, id = commentId) => {
         return {
             actionId, objectId, id
         }
     }
+    useEffect(() => {
+        if (isError){
+            setAction(null)
+            setLikesLength(likes)
+            toast.error('Error, please try again!')
+        }
+        // нам не нужно включать сюда likes поэтому отключаем предупреждение Eslint
+        // eslint-disable-line react-hooks/exhaustive-deps
+    },[isError])
 
     return (
         <div className={styles.icons}>
             <div className={styles.block}>
                 <button
-                    disabled={isLoading || !token}
-                    className={clsx(styles.icon, isLikedState && styles.icon_active)}
-                    onClick={handleToggleLike}
+                    disabled={isLoading}
+                    className={clsx(styles.icon, action === TOGGLE_ACTIONS.LIKE && styles.icon_active)}
+                    onClick={(event) => handleToggleAction(event, TOGGLE_ACTIONS.LIKE)}
                     type="button">
                     <BiSolidLike/>
                 </button>
@@ -74,9 +77,9 @@ const LikeButtons = ({likes, isLiked, commentId} : IProps) => {
             </div>
             <div className={styles.block}>
                 <button
-                    disabled={isLoading || !token}
-                    onClick={handleToggleDislike}
-                    className={clsx(styles.icon, isDislikeState && styles.icon_active)}>
+                    disabled={isLoading}
+                    onClick={(event) => handleToggleAction(event, TOGGLE_ACTIONS.DISLIKE)}
+                    className={clsx(styles.icon, action === TOGGLE_ACTIONS.DISLIKE && styles.icon_active)}>
                     <BiSolidDislike/>
                 </button>
             </div>

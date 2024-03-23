@@ -5,16 +5,17 @@ import { useForm } from "react-hook-form";
 import {toast} from "react-toastify";
 import {useRouter} from "next/navigation";
 import {recipesService} from "@/services/recipes.service";
-import {TypeRecipesCreate} from "@/types/recipes.types";
+import {TypeIngredients, TypeRecipesCreate} from "@/types/recipes.types";
 import {KEYS} from "@/constants/query-keys.constants";
 
 interface ICreateRecipeProps{
     image: File | null
     difficulty: string
     category: string
+    ingredients: TypeIngredients[]
 }
 
-export function useCreateRecipe({image,difficulty, category }: ICreateRecipeProps) {
+export function useCreateRecipe({image,difficulty, category, ingredients }: ICreateRecipeProps) {
 
     const { register,
         watch,
@@ -45,11 +46,8 @@ export function useCreateRecipe({image,difficulty, category }: ICreateRecipeProp
         isValid,
         handleSubmit: handleSubmit((data) => {
             const formData = new FormData()
-            const ingredients = [{
-                ingredient: data.ingredient,
-                amount: data.amount,
-                measureUnit: data.measureUnit
-            }]
+
+
             const newData = {
                 title: data.title,
                 category,
@@ -67,5 +65,6 @@ export function useCreateRecipe({image,difficulty, category }: ICreateRecipeProp
 
         }),
         isLoading: createRecipe.isPending,
+        reset
     };
 }

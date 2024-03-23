@@ -36,7 +36,6 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>((
                     <input
                         {...rest}
                         ref={ref}
-                        required
                         disabled={disabled}
                         type={typeField}
                         placeholder={placeholder}

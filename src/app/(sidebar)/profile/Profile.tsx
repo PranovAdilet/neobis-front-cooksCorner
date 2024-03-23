@@ -12,6 +12,7 @@ import {useParams} from "next/navigation";
 import Recipes from "@/app/(sidebar)/profile/Recipes";
 import Loader from "@/components/ui/loader/Loader";
 import UserInfo from "@/app/(sidebar)/author/UserInfo";
+import {useInitialData} from "@/components/manage-profile/useInitialData";
 
 const Profile = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -27,7 +28,7 @@ const Profile = () => {
                 isLoading && <Loader/>
             }
             <ModalContainer classname={styles.modal} isOpen={isOpen} setIsOpen={setIsOpen}>
-                <ManageProfile userId={data?.userId} setIsOpen={setIsOpen}/>
+                <ManageProfile user={data} setIsOpen={setIsOpen}/>
             </ModalContainer>
             {
                 data && isSuccess && <div className="container">

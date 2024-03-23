@@ -9,7 +9,8 @@ import {authService} from "@/services/auth.service";
 export function useProfile(id: number) {
     const { data, isLoading, isSuccess } = useQuery({
         queryKey: [KEYS.profile],
-        queryFn: () => userService.getUserById(id)
+        queryFn: () => userService.getUserById(id),
+        enabled: id > 0
     })
 
     return { data, isLoading, isSuccess }
@@ -31,8 +32,9 @@ export function useProfileTypeRecipes(type: string) {
 export function useRecipesUser(id: number) {
 
     const { data, isLoading, isSuccess } = useQuery({
-        queryKey: [KEYS.profile_type_recipes],
-        queryFn: () => userService.getRecipesByUserId(id)
+        queryKey: [KEYS.recipesUserById],
+        queryFn: () => userService.getRecipesByUserId(id),
+        enabled: id > 0
     })
 
 

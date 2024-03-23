@@ -62,16 +62,14 @@ const Detail = () => {
 
                         </div>
                         <h3 className={styles.reviews}>Comments</h3>
-                        {
-                            token &&  <AddComment
-                                recipeId={data.recipeId}
-                                placeholder="Enter a comment"
-                                type="comment"
-                                isReply={comment}
-                                setIsReply={setComment}
-                                id={data.recipeId}
-                            />
-                        }
+                        <AddComment
+                            recipeId={data.recipeId}
+                            placeholder="Enter a comment"
+                            type="comment"
+                            isReply={comment}
+                            setIsReply={setComment}
+                            id={data.recipeId}
+                        />
                         <Comments id={id}/>
                     </div>
                 </>

@@ -54,7 +54,6 @@ const Select = ({ array, register} : IProps) => {
                                 event.preventDefault()
                             }
                         }}
-                        required
                     />
                 </div>
                 <div className={styles.measureUnit}>
@@ -63,7 +62,6 @@ const Select = ({ array, register} : IProps) => {
                         value={select}
                         className={styles.input} type="text"
                         onChange={handleMeasureUnitChange}
-                        required
                     />
                     <span onClick={handleMenu} className={styles.icon}><MdOutlineKeyboardArrowDown/></span>
                 </div>
@@ -75,8 +73,6 @@ const Select = ({ array, register} : IProps) => {
                     }
                 </ul>
             </div>
-
-            <div className={styles.plus}>+</div>
         </>
     )
 

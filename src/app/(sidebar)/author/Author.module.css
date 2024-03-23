@@ -67,7 +67,7 @@
 }
 
 .modal {
-  overflow: scroll !important;
+  overflow-y: scroll !important;
   max-width: 444px;
   max-height: 400px !important;
 }

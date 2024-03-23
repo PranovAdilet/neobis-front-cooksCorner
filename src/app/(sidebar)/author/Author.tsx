@@ -17,6 +17,7 @@ import {useState} from "react";
 import Loader from "@/components/ui/loader/Loader";
 import UserInfo from "@/app/(sidebar)/author/UserInfo";
 import Skeletons from "@/components/ui/skeleton/Skeletons";
+import UserRecipes from "@/app/(sidebar)/author/UserRecipes";
 
 
 const Author = () => {
@@ -24,7 +25,7 @@ const Author = () => {
 
 
     const {data, isSuccess, isLoading : isLoadingProfile} = useProfile(+id || 0)
-    const {data: recipes, isLoading: isRecipesLoading} = useRecipesUser(+id || 0)
+
     const {mutate, isLoading} = useFollow()
 
     const userId = AuthTokensService.getUserId()
@@ -47,7 +48,7 @@ const Author = () => {
         setIsFollow(prev => !prev)
     }
 
-    const isMe = () => {
+    const isProfileId = () => {
         if (+userId === data?.userId){
             return 'Go to profile'
         }
@@ -74,7 +75,7 @@ const Author = () => {
                             <Button onClick={handleFollow}
                                 disabled={isLoading}
                                 className={styles.btn}>
-                                {isMe()}
+                                {isProfileId()}
                             </Button>}
                         {
                             isFollow &&
@@ -91,16 +92,7 @@ const Author = () => {
                     </div>
                 }
 
-                <div className={styles.cards}>
-                    {
-                        isRecipesLoading && <Skeletons count={8} className=""/>
-                    }
-                    {
-                        recipes?.map(item => (
-                            <Card key={item.recipeId} item={item} type="big"/>
-                        ))
-                    }
-                </div>
+               <UserRecipes id={id}/>
             </div>
         </section>
     );

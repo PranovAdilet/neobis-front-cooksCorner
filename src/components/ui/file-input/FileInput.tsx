@@ -31,7 +31,6 @@ const FileInput = ({setSelectedFile, selectedFile, register}: IProps) => {
                     className={styles.hidden}
                     type="file"
                     onChange={handleFileChange}
-                    required
                 />
                 {
                     !selectedFile && <>

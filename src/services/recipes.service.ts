@@ -8,8 +8,8 @@ export const recipesService = {
 
     async getAndSearchRecipes(query: string, page = 0, size = 12){
 
-        const parameters = `?query=${query}&page=${page}&size=${size}`
-        const response = await axiosWithAuth.get<IRecipesResponse>(this.BASE_URL + parameters, {
+        const parameters = `/recipes?query=${query}&page=${page}&size=${size}`
+        const response = await axiosWithAuth.get<IRecipesResponse>(parameters, {
             headers: {
                 "Content-Type": "text/plain"
             }
@@ -18,7 +18,7 @@ export const recipesService = {
     },
 
     async createRecipe(data: FormData){
-        const response = await axiosWithAuth.post<string>(this.BASE_URL, data, {
+        const response = await axiosWithAuth.post<string>("/recipes", data, {
             headers: {
                 "Content-Type": "multipart/form-data"
             }
@@ -26,7 +26,7 @@ export const recipesService = {
         return response.data
     },
     async getRecipeById(id: number){
-        const response = await axiosWithAuth.get<IFullRecipe>(`${this.BASE_URL}/${id}`)
+        const response = await axiosWithAuth.get<IFullRecipe>(`/recipes/${id}`)
         return response.data
     },
 
@@ -37,7 +37,7 @@ export const recipesService = {
     },
     async getProfileRecipes(type: string,  page = 0 , size = 12){
         const parameters = `?query=${type}&page=${page}&size=${size}`
-        const response = await axiosWithAuth.get<IRecipesResponse>(this.BASE_URL + parameters)
+        const response = await axiosWithAuth.get<IRecipesResponse>("/recipes" + parameters)
         return response.data.content
     }
 

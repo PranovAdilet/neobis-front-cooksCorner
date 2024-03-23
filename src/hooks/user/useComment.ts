@@ -15,10 +15,11 @@ export function useComments (id: number){
     return {data, isLoading, isSuccess}
 }
 
-export function useGetReplies(id: number){
+export function useGetReplies(id: number, isReply: boolean){
     const {data, isLoading, isSuccess} = useQuery({
-        queryKey: [KEYS.getReply],
-        queryFn: () => reviewsService.getReplies(id)
+        queryKey: [KEYS.getReply, id],
+        queryFn: () => reviewsService.getReplies(id),
+        enabled: isReply
     })
 
     return {data, isLoading, isSuccess}
@@ -32,17 +33,12 @@ export function useAddReply(
     setText: (text: string) => void,
     type: string) {
 
-    const queryClient = useQueryClient()
 
     const addComment = useMutation({
         mutationKey: [KEYS.addReply],
         mutationFn: reviewsService.addReply,
         async onSuccess(){
-            console.log(2)
             toast.success('Сomment has been added')
-            queryClient.clear();
-            setText('')
-            console.log(1)
 
         },
         onError(error){
@@ -53,6 +49,7 @@ export function useAddReply(
 
     return {
         mutate: () => {
+            console.log(type === "reply")
             const newData = {
                 isReply: type === "reply",
                 text,
