@@ -3,7 +3,7 @@ import {recipesService} from "@/services/recipes.service";
 import {IType} from "@/app/(sidebar)/search/types/search.interface";
 import {KEYS} from "@/constants/query-keys.constants";
 
-export function useRecipes(query: string, type?: IType, page= 0, size= 12) {
+export function useRecipes(query: string, page= 0, size= 12) {
 
     const { data, isLoading, isSuccess, error } = useQuery({
         queryKey: [KEYS.recipes, [query]],

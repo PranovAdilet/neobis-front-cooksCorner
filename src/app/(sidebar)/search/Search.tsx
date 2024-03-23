@@ -26,7 +26,7 @@ const Search = () => {
         = useSearchUsers(debouncedValue, type)
 
     const {data : dataRecipes, isLoading: isLoadingRecipes}
-        = useRecipes(debouncedValue, type)
+        = useRecipes(debouncedValue)
 
 
     const handleOpen = () => setIsOpen(true)

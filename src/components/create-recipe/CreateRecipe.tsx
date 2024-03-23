@@ -12,9 +12,7 @@ import Difficulty from "@/components/create-recipe/Difficulty";
 import clsx from "clsx";
 import SelectCategory from "@/components/ui/select/SelectCategory";
 import Ingredients from "@/components/create-recipe/Ingredients";
-import {Simulate} from "react-dom/test-utils";
-import reset = Simulate.reset;
-import {IIngredient, TypeIngredients} from "@/types/recipes.types";
+import {TypeIngredients} from "@/types/recipes.types";
 import IngredientItem from "@/components/create-recipe/IngredientItem";
 
 const CreateRecipe = ({setIsOpen} : {setIsOpen : (state: boolean) => void}) => {
