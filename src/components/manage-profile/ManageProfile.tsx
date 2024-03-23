@@ -32,8 +32,7 @@ const ManageProfile = ({setIsOpen, userId} : IProps) => {
                         message: 'Name should not exceed 30 characters',
                     }
                 })}
-            > {errors.name && <p className={styles.error}>{errors.name.message}</p>}
-
+            >
             </Field>
 
             <p className={styles.subtitle}>Change your bio</p>

@@ -34,7 +34,7 @@ const Sidebar = () => {
                     }
                 </ul>
             </div>
-            <button onClick={handleOpen} className={clsx(styles.item, !token && styles.none)}>
+            <button onClick={handleOpen} className={clsx(styles.item)}>
                 <span className="text-red-500 text-1.5xl">
                     <FiLogOut/>
                 </span>
