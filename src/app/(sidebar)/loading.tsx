@@ -1,9 +1,9 @@
 import React from 'react';
-import Loader from "@/components/ui/loader/Loader";
+import { LuLoader2 } from "react-icons/lu";
 
 
 const Loading = () => {
-    return <Loader/>
+    return <div className="flex justify-center items-center h-full"><LuLoader2 className="loader" /></div>
 };
 
 export default Loading;

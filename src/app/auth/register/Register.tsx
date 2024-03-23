@@ -17,8 +17,7 @@ const Register = () => {
     const {
         handleSubmit,
         isLoading,
-        register
-        , errorMessage, watch, errors,
+        register, watch, errors,
         isValid
     } = useRegisterForm();
 

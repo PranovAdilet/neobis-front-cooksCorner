@@ -9,7 +9,6 @@ import Link from "next/link";
 import {ROUTES} from "@/config/pages-url.config";
 import {LuEye, LuEyeOff} from "react-icons/lu";
 import {MdAlternateEmail} from "react-icons/md";
-import {authService} from "@/services/auth.service";
 import clsx from "clsx";
 
 const Login = () => {
@@ -17,9 +16,7 @@ const Login = () => {
     const {
         handleSubmit,
         isLoading,
-        register
-        , errorMessage, errors,
-        isValid
+        register, errors
     } = useLoginForm();
 
 

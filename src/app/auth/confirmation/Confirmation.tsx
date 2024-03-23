@@ -6,8 +6,6 @@ import ModalContainer from "@/components/modal-container/ModalContainer";
 import ConfirmationModal from "@/app/auth/confirmation/ConfirmationModal";
 import clsx from "clsx";
 import {useConfirmation} from "@/app/auth/confirmation/useConfirmation";
-import Link from "next/link";
-import {ROUTES} from "@/config/pages-url.config";
 
 const Confirmation = () => {
 
@@ -21,7 +19,6 @@ const Confirmation = () => {
 
         }
     }, [token])
-    console.log(token)
 
     const handleOpen = () => setIsOpen(!isOpen)
 
