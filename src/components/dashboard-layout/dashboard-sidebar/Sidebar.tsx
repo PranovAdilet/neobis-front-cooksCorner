@@ -15,8 +15,6 @@ const Sidebar = () => {
 
     const [isOpen, setIsOpen] = useState(false)
     const handleOpen = () => setIsOpen(true)
-    const token = AuthTokensService.getAccessToken()
-
 
     return (
         <aside className={styles.sidebar}>

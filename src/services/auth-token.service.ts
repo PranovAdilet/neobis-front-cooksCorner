@@ -16,7 +16,7 @@ export const AuthTokensService = {
     getUserId: () => {
         const userId = Cookies.get(EnumTokens.USER_ID)
         if (userId){
-            return userId
+            return userId || ''
         }
         return ''
     },
