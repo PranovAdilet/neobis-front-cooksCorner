@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./FileInput.module.scss";
 import {PiCameraThin} from "react-icons/pi";
 import {UseFormRegister} from "react-hook-form";
+import Image from "next/image";
 
 
 
@@ -41,7 +42,7 @@ const FileInput = ({setSelectedFile, selectedFile, register}: IProps) => {
 
                 {
                     selectedFile && <>
-                        <img className={styles.image} src={URL.createObjectURL(selectedFile)} alt="Preview"/>
+                        <Image width={150} height={150} className={styles.image} src={URL.createObjectURL(selectedFile)} alt="Preview"/>
                         <label className={styles.textActive} htmlFor="file">Change photo</label>
                     </>
                 }

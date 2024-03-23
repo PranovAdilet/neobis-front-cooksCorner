@@ -23,8 +23,6 @@ const Detail = () => {
 
     const [comment, setComment] = useState(true)
 
-    const token = AuthTokensService.getAccessToken()
-
     return (
         <section className={styles.detail}>
             {

@@ -15,5 +15,6 @@ export function useInitialData(reset: UseFormReset<TypeResponseUpdateProfile>, i
                 bio: data.bio
             })
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isSuccess])
 }

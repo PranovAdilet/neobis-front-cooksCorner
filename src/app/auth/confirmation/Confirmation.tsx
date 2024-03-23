@@ -18,6 +18,7 @@ const Confirmation = () => {
             confirmation(token)
 
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
 
     const handleOpen = () => setIsOpen(!isOpen)

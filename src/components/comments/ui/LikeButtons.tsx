@@ -58,7 +58,7 @@ const LikeButtons = ({likes, isLiked, commentId} : IProps) => {
             toast.error('Error, please try again!')
         }
         // нам не нужно включать сюда likes поэтому отключаем предупреждение Eslint
-        // eslint-disable-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[isError])
 
     return (
