@@ -22,20 +22,17 @@ export const AuthTokensService = {
     },
     saveTokenStorage: (data: ILoginResponse) => {
         Cookies.set(EnumTokens.USER_ID, JSON.stringify(data.userId), {
-            domain: 'localhost',
             sameSite: 'strict',
             expires: 7,
             secure: true
         })
 
         Cookies.set(EnumTokens.ACCESS_TOKEN, data.accessToken, {
-            domain: 'localhost',
             sameSite: 'strict',
             expires: 7,
             secure: true
         })
         Cookies.set(EnumTokens.REFRESH_TOKEN, data.refreshToken, {
-            domain: 'localhost',
             sameSite: 'strict',
             secure: true
         })
