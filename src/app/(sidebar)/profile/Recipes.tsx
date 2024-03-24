@@ -4,7 +4,7 @@ import {useProfileTypeRecipes} from "@/hooks/user/useProfile";
 import Card from "@/components/card/Card";
 import clsx from "clsx";
 
-const Recipes = ({id} : {id : number | undefined}) => {
+const Recipes = () => {
 
     const [type, setType] = useState('my')
     const {data} = useProfileTypeRecipes(type)

@@ -2,20 +2,21 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { PropsWithChildren, useState } from 'react'
+import {PropsWithChildren, useMemo, useState} from 'react'
 import {ToastContainer} from "react-toastify";
 
 export function Providers({ children }: PropsWithChildren) {
-    const [client] = useState(
-        new QueryClient({
+    const client = useMemo(
+        () => new QueryClient({
             defaultOptions: {
                 queries: {
                     refetchOnWindowFocus: false,
                     retry: 2
                 }
             }
-        })
-    )
+        }),
+        []
+    );
 
     return (
         <QueryClientProvider client={client}>

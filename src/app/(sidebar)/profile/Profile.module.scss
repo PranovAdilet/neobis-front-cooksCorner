@@ -82,6 +82,10 @@
     outline: none;
 
     padding: 19px 0;
+    &:hover{
+      background: rgb(250, 158, 49);
+      color: #FFFFFF;
+    }
   }
 
   .cards{

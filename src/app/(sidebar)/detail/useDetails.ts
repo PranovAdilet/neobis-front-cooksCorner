@@ -6,7 +6,7 @@ import {reviewsService} from "@/services/reviews.service";
 
 export function useDetailsRecipe (id: number){
     const {data, isLoading, isSuccess} = useQuery({
-        queryKey: [KEYS.details],
+        queryKey: [KEYS.details, id],
         queryFn: () => recipesService.getRecipeById(id)
     })
 

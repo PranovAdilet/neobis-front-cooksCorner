@@ -1,3 +1,6 @@
+.detail {
+  position: relative;
+}
 .detail .image {
   max-height: 37vh;
   object-fit: cover;

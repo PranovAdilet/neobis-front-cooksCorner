@@ -11,7 +11,7 @@ import SearchField from "@/app/(sidebar)/search/ui/SearchField";
 import {useSearchUsers} from "@/hooks/useSearch";
 import {useDebounce} from "@/hooks/useDebounce";
 import {IType} from "@/app/(sidebar)/search/types/search.interface";
-import {useRecipes} from "@/hooks/recipes/useRecipes";
+import {useRecipes, useSearchRecipes} from "@/hooks/recipes/useRecipes";
 import Card from "@/components/card/Card";
 import Skeletons from "@/components/ui/skeleton/Skeletons";
 
@@ -26,7 +26,7 @@ const Search = () => {
         = useSearchUsers(debouncedValue, type)
 
     const {data : dataRecipes, isLoading: isLoadingRecipes}
-        = useRecipes(debouncedValue)
+        = useSearchRecipes(debouncedValue)
 
 
     const handleOpen = () => setIsOpen(true)

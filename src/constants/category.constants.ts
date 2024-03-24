@@ -3,34 +3,34 @@ import {TypeCategories} from "@/types/recipes.types";
 export const CATEGORIES: TypeCategories[] = [
     {
         view: 'Breakfast',
-        post: 'breakfast'
+        post: '1'
     }, {
-        view: 'Beverages',
-        post: 'beverages'
-    },
-    {
-        view: 'Pasta',
-        post: 'pasta'
-    },
-    {
-        view: 'Desserts',
-        post: 'desserts'
-    },
-    {
         view: 'Soups',
-        post: 'soups'
+        post: '2'
     },
     {
         view: 'Salads',
-        post: 'salads'
+        post: '3'
     },
     {
-        view: 'Seafoods',
-        post: 'seafoods'
+        view: 'Pasta',
+        post: '4'
+    },
+    {
+        view: 'Desserts',
+        post: '5'
+    },
+    {
+        view: ' Seafoods',
+        post: '6'
+    },
+    {
+        view: 'Beverages',
+        post: '7'
     },
     {
         view: 'Main dishes',
-        post: 'main dishes'
+        post: '8'
     }
 ]
 

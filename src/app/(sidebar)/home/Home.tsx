@@ -10,7 +10,7 @@ import CategoryItem from "@/app/(sidebar)/home/CategoryItem";
 import Skeletons from "@/components/ui/skeleton/Skeletons";
 
 const Home = () => {
-    const [category, setCategory] = useState('breakfast')
+    const [category, setCategory] = useState('1')
     const {data, isSuccess, isLoading} = useRecipes(category)
 
     return (

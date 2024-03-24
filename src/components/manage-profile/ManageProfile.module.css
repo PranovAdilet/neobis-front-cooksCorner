@@ -26,6 +26,11 @@
 .profile .button:disabled {
   background: rgb(138, 138, 138);
 }
+.profile .button:hover {
+  color: rgb(250, 158, 49);
+  background: transparent;
+  border: 1px solid rgb(250, 158, 49);
+}
 .profile .block {
   margin-top: 1.3rem;
 }

@@ -8,9 +8,9 @@ import {authService} from "@/services/auth.service";
 
 export function useProfile(id: number) {
     const { data, isLoading, isSuccess } = useQuery({
-        queryKey: [KEYS.profile],
+        queryKey: [KEYS.profile, id],
         queryFn: () => userService.getUserById(id),
-        enabled: id > 0
+        enabled: !!id && id > 0
     })
 
     return { data, isLoading, isSuccess }
@@ -34,7 +34,7 @@ export function useRecipesUser(id: number) {
     const { data, isLoading, isSuccess } = useQuery({
         queryKey: [KEYS.recipesUserById],
         queryFn: () => userService.getRecipesByUserId(id),
-        enabled: id > 0
+        enabled: !!id && id > 0
     })
 
 

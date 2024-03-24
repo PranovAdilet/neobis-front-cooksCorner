@@ -23,6 +23,9 @@
   color: rgb(250, 158, 49);
   margin-top: 2px;
 }
+.sidebar .logo__text_active {
+  color: #343434;
+}
 .sidebar .line {
   width: 80px;
   border-top: 1px solid rgb(138, 138, 138);

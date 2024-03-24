@@ -30,13 +30,14 @@ export function useFollow() {
 
 export function useFollowers(id: number, type: string) {
     const { data, isLoading, isSuccess } = useQuery({
-        queryKey: [KEYS.followers, id],
+        queryKey: [KEYS.followers, id, type],
         queryFn: () => {
             if (type === "Followers"){
                 return  userService.getFollowers(id)
             }
             return userService.getFollowing(id)
-        }
+        },
+         enabled: !!id
     })
 
     return { data, isLoading, isSuccess }

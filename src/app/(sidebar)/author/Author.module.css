@@ -1,3 +1,6 @@
+.author {
+  position: relative;
+}
 .author .container {
   display: flex;
   justify-content: center;

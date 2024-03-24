@@ -129,6 +129,15 @@
   font-size: 2rem;
   cursor: pointer;
   margin-top: 5px;
+  transition: all 0.3s;
+}
+.plus:disabled {
+  transform: scale(95%);
+  pointer-events: none;
+}
+.plus:hover {
+  transform: scale(101%);
+  background: rgb(255, 178, 79);
 }
 
 .item {

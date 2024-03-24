@@ -13,6 +13,7 @@ import ToggleButtons from "@/components/ui/toggleBookmarkAndLikeButtons/ToggleBu
 import Comments from "@/components/comments/Comments";
 import AddComment from "@/components/comments/ui/AddComment";
 import {AuthTokensService} from "@/services/auth-token.service";
+import Back from "@/components/ui/back/Back";
 
 
 const Detail = () => {
@@ -25,6 +26,7 @@ const Detail = () => {
 
     return (
         <section className={styles.detail}>
+            <Back/>
             {
                 data && <>
                     <Image priority={true} className={styles.image} src={data.imageUrl} width={800} height={800} alt="detailImage"/>

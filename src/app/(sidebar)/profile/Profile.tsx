@@ -19,14 +19,11 @@ const Profile = () => {
     const handleOpen = () => setIsOpen(true)
     const {id} = useParams()
 
-    const {data, isLoading , isSuccess} = useProfile(+id || 0)
+    const {data , isSuccess} = useProfile(+id || 0)
 
 
     return (
         <section className={styles.profile}>
-            {
-                isLoading && <Loader/>
-            }
             <ModalContainer classname={styles.modal} isOpen={isOpen} setIsOpen={setIsOpen}>
                 <ManageProfile user={data} setIsOpen={setIsOpen}/>
             </ModalContainer>
@@ -49,7 +46,7 @@ const Profile = () => {
                             <button onClick={handleOpen} className={styles.btn}>Manage Profile</button>
                         </div>
                     </div>
-                    <Recipes id={data.userId}/>
+                    <Recipes/>
                 </div>
             }
         </section>

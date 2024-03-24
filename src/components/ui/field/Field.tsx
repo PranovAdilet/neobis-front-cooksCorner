@@ -37,6 +37,7 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>((
                         {...rest}
                         ref={ref}
                         disabled={disabled}
+                        maxLength={35}
                         type={typeField}
                         placeholder={placeholder}
                         className={styles.login__field}

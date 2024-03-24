@@ -10,7 +10,7 @@ export default  function MenuItem ({item} : IMenuProps)  {
 
     const pathname = usePathname()
 
-    const className = clsx({[styles.item_active]: pathname === item.link}, styles.item)
+    const className = clsx({[styles.item_active]: pathname.includes(item.link)}, styles.item)
 
     return <Link scroll={false} className={className} href={`${item.link}`} >
         <span className={styles.icon}>

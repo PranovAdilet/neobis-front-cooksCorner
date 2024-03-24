@@ -59,6 +59,10 @@
   outline: none;
   padding: 19px 0;
 }
+.profile .btn:hover {
+  background: rgb(250, 158, 49);
+  color: #FFFFFF;
+}
 .profile .cards {
   display: flex;
   flex-wrap: wrap;

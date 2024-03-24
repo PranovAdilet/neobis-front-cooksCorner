@@ -10,6 +10,7 @@
 
   z-index: 20;
 
+
   .popup{
     position: absolute;
     top: 50%;
@@ -33,10 +34,14 @@
 }
 
 .none{
-  display: none;
+  transition:  0.4s;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .block{
+  transition:  0.4s;
+  opacity: 1;
   display: block;
 }
 

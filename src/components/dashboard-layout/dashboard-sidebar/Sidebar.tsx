@@ -2,26 +2,32 @@
 
 import React, {useState} from 'react';
 import logo from '@/../public/logo.svg'
+import logoDark from '@/../public/logo_dark.svg'
 import Image from "next/image";
 import {MENU} from "@/components/dashboard-layout/dashboard-sidebar/menu.data";
 import styles from './Sidebar.module.scss'
 import MenuItem from "@/components/dashboard-layout/ui/MenuItem";
 import Logout from "@/components/dashboard-layout/ui/Logout";
 import {FiLogOut} from "react-icons/fi";
-import {AuthTokensService} from "@/services/auth-token.service";
 import clsx from "clsx";
+import {usePathname} from "next/navigation";
+import {DASHBOARD_PAGES} from "@/config/pages-url.config";
 
 const Sidebar = () => {
 
     const [isOpen, setIsOpen] = useState(false)
+    const pathname = usePathname()
+
+    const isActive = pathname === DASHBOARD_PAGES.HOME || pathname === DASHBOARD_PAGES.SEARCH || pathname.includes(DASHBOARD_PAGES.PROFILE)
+
     const handleOpen = () => setIsOpen(true)
 
     return (
         <aside className={styles.sidebar}>
             <div>
                 <div className={styles.logo}>
-                    <Image src={logo} alt="logo"/>
-                    <p className={styles.logo__text}>CooksCorner</p>
+                    <Image src={isActive ? logo : logoDark} alt="logo"/>
+                    <p className={clsx(styles.logo__text, !isActive && styles.logo__text_active)}>CooksCorner</p>
                 </div>
                 <div className={styles.line}/>
                 <ul className={styles.list}>

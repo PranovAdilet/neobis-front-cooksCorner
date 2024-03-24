@@ -34,6 +34,11 @@
     &:disabled{
       background: rgb(138, 138, 138);
     }
+    &:hover{
+      color: rgb(250, 158, 49);
+      background: transparent;
+      border: 1px solid rgb(250, 158, 49);
+    }
   }
 
   .block{

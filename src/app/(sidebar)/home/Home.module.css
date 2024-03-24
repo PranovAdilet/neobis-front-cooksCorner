@@ -1,5 +1,7 @@
 .home {
   background: #FFFFFF;
+  scrollbar-width: none;
+  overflow-y: auto;
 }
 .home .content {
   padding: 2rem 2rem 8.3rem;

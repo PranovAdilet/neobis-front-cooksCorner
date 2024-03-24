@@ -13,18 +13,19 @@ import {IFollowData} from "@/types/user.types";
 import {AuthTokensService} from "@/services/auth-token.service";
 import {DASHBOARD_PAGES} from "@/config/pages-url.config";
 import clsx from "clsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Loader from "@/components/ui/loader/Loader";
 import UserInfo from "@/app/(sidebar)/author/UserInfo";
 import Skeletons from "@/components/ui/skeleton/Skeletons";
 import UserRecipes from "@/app/(sidebar)/author/UserRecipes";
+import Back from "@/components/ui/back/Back";
 
 
 const Author = () => {
     const {id} = useParams()
 
 
-    const {data, isSuccess, isLoading : isLoadingProfile} = useProfile(+id || 0)
+    const {data, isLoading : isLoadingProfile} = useProfile(+id || 0)
 
     const {mutate, isLoading} = useFollow()
 
@@ -32,6 +33,10 @@ const Author = () => {
     const {push} = useRouter()
 
     const [isFollow, setIsFollow] = useState(data?.isFollowed)
+
+    useEffect(() => {
+        setIsFollow(data?.isFollowed)
+    }, [data?.isFollowed]);
 
     const handleFollow = () => {
         if (+userId === data?.userId){
@@ -48,15 +53,17 @@ const Author = () => {
         setIsFollow(prev => !prev)
     }
 
-    const isProfileId = () => {
+    const isProfileId = () => { // надо починить не меняет при переходе из followers на свою старницу
         if (+userId === data?.userId){
             return 'Go to profile'
         }
        return "Follow"
     }
+    console.log(data)
 
     return (
         <section className={styles.author}>
+            <Back/>
             {
                 isLoadingProfile && <Loader/>
             }

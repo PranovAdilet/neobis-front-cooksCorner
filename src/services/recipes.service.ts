@@ -16,6 +16,16 @@ export const recipesService = {
         })
         return response.data.content
     },
+    async getRecipes(query: string, page = 0, size = 12){
+
+        const parameters = `/recipes/category/${query}?page=${page}&size=${size}`
+        const response = await axiosWithAuth.get<IRecipesResponse>(parameters, {
+            headers: {
+                "Content-Type": "text/plain"
+            }
+        })
+        return response.data.content
+    },
 
     async createRecipe(data: FormData){
         const response = await axiosWithAuth.post<string>("/recipes", data, {
