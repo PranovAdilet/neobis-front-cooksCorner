@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from "../Comments.module.scss";
+import styles from "../../Comments.module.scss";
 import clsx from "clsx";
 import {useGetReplies} from "@/hooks/user/useComment";
-import ReplyItem from "@/components/comments/Replies/ReplyItem";
+import ReplyItem from "@/components/comments/ui/Replies/ReplyItem";
 import Loader from "@/components/ui/loader/Loader";
 
 interface IProps{

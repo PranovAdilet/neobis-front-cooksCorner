@@ -11,7 +11,11 @@ export function useToggleActions(type: string) {
         mutationKey: [KEYS.toggle_buttons],
         mutationFn: (data: TypeBookmarkAndRecipe) => recipesService.toggleLikeDislikeBookmark(data),
         onSuccess:  async () => {
-           await queryClient.invalidateQueries(KEYS.comments as InvalidateQueryFilters)
+            if (type === "recipes"){
+                //await queryClient.invalidateQueries({queryKey: [KEYS.details]})
+            }else{
+                //await queryClient.invalidateQueries(KEYS.comments as InvalidateQueryFilters)
+            }
         },
         onError(error){
             console.log(error)

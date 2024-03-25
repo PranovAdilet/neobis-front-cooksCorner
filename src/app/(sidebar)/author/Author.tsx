@@ -59,7 +59,6 @@ const Author = () => {
         }
        return "Follow"
     }
-    console.log(data)
 
     return (
         <section className={styles.author}>

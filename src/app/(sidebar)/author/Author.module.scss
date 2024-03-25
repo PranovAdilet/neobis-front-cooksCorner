@@ -11,8 +11,10 @@
 
     .content{
         text-align: center;
+        min-height: 60vh;
 
         width: 30rem;
+        margin: 0 auto;
 
         display: flex;
         flex-direction: column;

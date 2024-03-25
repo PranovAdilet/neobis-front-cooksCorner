@@ -6,7 +6,7 @@ import {useRecipesUser} from "@/hooks/user/useProfile";
 
 const UserRecipes = ({id} : {id:  string | string[]}) => {
 
-    const {data: recipes, isLoading: isRecipesLoading} = useRecipesUser(+id || 0)
+    const {data: recipes, isLoading: isRecipesLoading, isSuccess} = useRecipesUser(+id || 0)
 
     return (
         <div className={styles.cards}>
@@ -14,9 +14,12 @@ const UserRecipes = ({id} : {id:  string | string[]}) => {
                 isRecipesLoading && <Skeletons count={8} className=""/>
             }
             {
-                recipes?.map(item => (
+                 recipes?.map(item => (
                     <Card key={item.recipeId} item={item} type="big"/>
                 ))
+            }
+            {
+                isSuccess && !recipes?.length && <h2 className="font-semibold text-1.5xl mt-3.5">Recipes not found</h2>
             }
         </div>
     );

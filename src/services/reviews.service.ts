@@ -1,6 +1,6 @@
 import {axiosClassics, axiosWithAuth} from "@/api/interceptors";
 import {IFullRecipe} from "@/types/recipes.types";
-import {ICommentReq, IResponseComment} from "@/types/comments.types";
+import {IComment, ICommentReq, IResponseComment} from "@/types/comments.types";
 
 export const reviewsService = {
 
@@ -18,4 +18,12 @@ export const reviewsService = {
         const response = await axiosWithAuth.get<IResponseComment>(`${this.BASE_URL}/${id}/replies`)
         return response.data.content
     },
+    async updateComment(commentId: number, text: string){
+        const response = await axiosWithAuth.put<IComment>(this.BASE_URL, {commentId, text})
+        return response.data
+    },
+    async deleteComment(commentId: number){
+        const response = await axiosWithAuth.delete<string>(this.BASE_URL + `/${commentId}`)
+        return response.data
+    }
 }

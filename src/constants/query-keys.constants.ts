@@ -16,5 +16,7 @@ export const KEYS = {
     followers: 'followers',
     following: 'following',
     updateProfile: "updateProfile",
-    recipesUserById: "recipesUserById"
+    recipesUserById: "recipesUserById",
+    updateComment: "updateComment",
+    deleteComment: "deleteComment"
 }

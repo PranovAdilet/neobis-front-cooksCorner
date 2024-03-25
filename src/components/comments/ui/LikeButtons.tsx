@@ -65,7 +65,6 @@ const LikeButtons = ({likes, isLiked, commentId} : IProps) => {
         <div className={styles.icons}>
             <div className={styles.block}>
                 <button
-                    disabled={isLoading}
                     className={clsx(styles.icon, action === TOGGLE_ACTIONS.LIKE && styles.icon_active)}
                     onClick={(event) => handleToggleAction(event, TOGGLE_ACTIONS.LIKE)}
                     type="button">
@@ -77,7 +76,6 @@ const LikeButtons = ({likes, isLiked, commentId} : IProps) => {
             </div>
             <div className={styles.block}>
                 <button
-                    disabled={isLoading}
                     onClick={(event) => handleToggleAction(event, TOGGLE_ACTIONS.DISLIKE)}
                     className={clsx(styles.icon, action === TOGGLE_ACTIONS.DISLIKE && styles.icon_active)}>
                     <BiSolidDislike/>

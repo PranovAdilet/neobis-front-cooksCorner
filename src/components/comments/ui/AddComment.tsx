@@ -18,6 +18,7 @@ interface IProps{
     placeholder: string
     type: 'comment' | 'reply'
     recipeId: number
+    setComments?: (state: boolean) => void
 }
 
 const AddComment = ({isReply, setIsReply, id, type, placeholder, recipeId} : IProps) => {
@@ -39,14 +40,9 @@ const AddComment = ({isReply, setIsReply, id, type, placeholder, recipeId} : IPr
         if (type === "comment") setIsOpen(false)
     }
 
-    const className = clsx({
-        [styles.hidden]: !isReply,
-        [styles.reply]: isReply ,
-        [styles.addComment]: isReply && type === "comment"
-    })
     const newId = `${type === "comment" ? recipeId : id}`
 
-    const {mutate, isLoading} = useAddReply(newId, text, setText, type)
+    const {mutate, isLoading} = useAddReply(newId, text, type)
     const queryClient = useQueryClient()
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -58,12 +54,17 @@ const AddComment = ({isReply, setIsReply, id, type, placeholder, recipeId} : IPr
             })
                 .catch(() => toast.error('Failed!'))
         setText('')
-
+        setIsReply(false)
     }
 
 
     return (
-        <form onSubmit={handleSubmit} className={className}>
+        <form onSubmit={handleSubmit} className={clsx({
+            [styles.hidden]: !isReply,
+            [styles.reply]: isReply ,
+            [styles.addComment]: isReply && type === "comment"
+        })}
+        >
             {
                 isLoading && <Loader/>
             }

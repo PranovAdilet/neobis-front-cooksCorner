@@ -1,7 +1,8 @@
-import {InvalidateQueryFilters, useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
+import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import {KEYS} from "@/constants/query-keys.constants";
 import {reviewsService} from "@/services/reviews.service";
 import {toast} from "react-toastify";
+import {IComment} from "@/types/comments.types";
 
 
 
@@ -30,7 +31,6 @@ export function useGetReplies(id: number, isReply: boolean){
 export function useAddReply(
     id: string,
     text: string,
-    setText: (text: string) => void,
     type: string) {
 
 
@@ -63,3 +63,47 @@ export function useAddReply(
         isError: addComment.isError
     };
 }
+
+export const useUpdateAndRemoveComment = (type: string) => {
+    const queryClient = useQueryClient()
+
+    const updateComment = useMutation<IComment, Error, {commentId: number, text: string}>({
+        mutationKey: [KEYS.updateComment],
+        mutationFn: ({ commentId, text }) => reviewsService.updateComment(commentId, text),
+        async onSuccess(){
+            if (type === "reply"){
+                await queryClient.invalidateQueries({queryKey: [KEYS.getReply]})
+            }else {
+                await queryClient.invalidateQueries({queryKey: [KEYS.comments]})
+            }
+            toast.success("Successfully updating!")
+        },
+        onError(){
+            toast.error("Failed!")
+        }
+    })
+    const deleteComment = useMutation<string, Error, {commentId: number}>({
+        mutationKey: [KEYS.deleteComment],
+        mutationFn: ({ commentId }) => reviewsService.deleteComment(commentId),
+        async onSuccess(){
+            if (type === "reply"){
+                await queryClient.invalidateQueries({queryKey: [KEYS.getReply]})
+                await queryClient.invalidateQueries({queryKey: [KEYS.comments]})
+            }else {
+                await queryClient.invalidateQueries({queryKey: [KEYS.comments]})
+            }
+            toast.success("Successfully deleting!")
+        },
+        onError(){
+            toast.error("Failed!")
+        }
+    })
+
+
+    return {
+        update: (commentId: number, text: string) => updateComment.mutate({ commentId, text }),
+        remove: (commentId: number) => deleteComment.mutate({ commentId }),
+        isLoading: updateComment.isPending || deleteComment.isPending
+    }
+}
+

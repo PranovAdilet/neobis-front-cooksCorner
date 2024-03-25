@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   column-gap: 0.7rem;
 }
 .profile .content__info {

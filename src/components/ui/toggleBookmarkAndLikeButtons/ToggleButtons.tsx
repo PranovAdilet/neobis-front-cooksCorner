@@ -85,7 +85,6 @@ const ToggleButtons = ({likes, isLiked, recipeId, isBookmarked, bookmarks, type}
     return (
         <div className={styles.likes}>
             <button
-                disabled={isLoading}
                 onClick={handleToggleLike}
                 type="button" className={styles.likes__icon}>
                 <Image
@@ -99,7 +98,6 @@ const ToggleButtons = ({likes, isLiked, recipeId, isBookmarked, bookmarks, type}
                 { likesLength > 0 && likesLength + typeButtons(' likes')}
             </p>
             <button
-                disabled={isLoading}
                 onClick={handleToggleBookmark}
                 type="button"
                 >
