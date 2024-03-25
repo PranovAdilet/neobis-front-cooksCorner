@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useEffect, useRef, useState} from 'react';
+import React, {useState} from 'react';
 import styles from "@/components/comments/Comments.module.scss";
 import {IComment} from "@/types/comments.types";
 import Image from "next/image";

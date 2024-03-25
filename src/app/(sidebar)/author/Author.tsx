@@ -4,9 +4,8 @@ import Image from "next/image";
 import check from '@/../public/check.svg'
 import styles from './Author.module.scss'
 import avatar from '@/../public/user.jpg'
-import {useProfile, useRecipesUser} from "@/hooks/user/useProfile";
+import {useProfile} from "@/hooks/user/useProfile";
 import {useParams, useRouter} from "next/navigation";
-import Card from "@/components/card/Card";
 import {useFollow} from "@/hooks/user/useFollow";
 import {Button} from "@/components/ui/button/Button";
 import {IFollowData} from "@/types/user.types";
@@ -16,7 +15,6 @@ import clsx from "clsx";
 import {useEffect, useState} from "react";
 import Loader from "@/components/ui/loader/Loader";
 import UserInfo from "@/app/(sidebar)/author/UserInfo";
-import Skeletons from "@/components/ui/skeleton/Skeletons";
 import UserRecipes from "@/app/(sidebar)/author/UserRecipes";
 import Back from "@/components/ui/back/Back";
 
@@ -53,7 +51,7 @@ const Author = () => {
         setIsFollow(prev => !prev)
     }
 
-    const isProfileId = () => { // надо починить не меняет при переходе из followers на свою старницу
+    const isProfileId = () => {
         if (+userId === data?.userId){
             return 'Go to profile'
         }

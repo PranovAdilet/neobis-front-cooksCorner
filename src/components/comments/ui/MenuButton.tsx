@@ -1,4 +1,4 @@
-import React, {MutableRefObject, useEffect, useRef, useState} from 'react';
+import React, {useRef} from 'react';
 import styles from "@/components/comments/Comments.module.scss";
 import clsx from "clsx";
 import {useUpdateAndRemoveComment} from "@/hooks/user/useComment";

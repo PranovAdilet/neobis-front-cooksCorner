@@ -12,7 +12,6 @@ import {ROUTES} from "@/config/pages-url.config";
 import ToggleButtons from "@/components/ui/toggleBookmarkAndLikeButtons/ToggleButtons";
 import Comments from "@/components/comments/Comments";
 import AddComment from "@/components/comments/ui/AddComment";
-import {AuthTokensService} from "@/services/auth-token.service";
 import Back from "@/components/ui/back/Back";
 
 

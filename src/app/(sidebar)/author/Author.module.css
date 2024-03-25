@@ -6,11 +6,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  min-height: 50vh;
   padding: 3.5rem 0 8.3rem 2rem;
 }
 .author .content {
   text-align: center;
-  min-height: 60vh;
   width: 30rem;
   margin: 0 auto;
   display: flex;

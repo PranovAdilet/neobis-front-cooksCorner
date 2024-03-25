@@ -23,9 +23,10 @@ interface IProps{
 
 const AddComment = ({isReply, setIsReply, id, type, placeholder, recipeId} : IProps) => {
 
+
     const [text, setText] = useState('')
     const [isOpen, setIsOpen] = useState(false)
-
+    console.log(isReply)
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => setText(e.target.value)
     const handleClose = () => {
         if (type === "comment"){
@@ -54,6 +55,9 @@ const AddComment = ({isReply, setIsReply, id, type, placeholder, recipeId} : IPr
             })
                 .catch(() => toast.error('Failed!'))
         setText('')
+        if (type === "comment"){
+            return
+        }
         setIsReply(false)
     }
 
