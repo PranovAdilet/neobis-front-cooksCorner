@@ -8,7 +8,7 @@
   top: 0;
   left: 0;
 
-  z-index: 20;
+  z-index: 10000;
 
 
   .popup{
@@ -23,6 +23,7 @@
     width: 100%;
     max-height: 90vh;
     overflow: hidden;
+    z-index: 10000000;
 
     overflow-y: auto;
 
@@ -45,3 +46,12 @@
   display: block;
 }
 
+@media screen and (max-width: 650px) {
+  .overlay{
+    .popup{
+      left: 50%;
+      width: 100%;
+      max-width: none;
+    }
+  }
+}

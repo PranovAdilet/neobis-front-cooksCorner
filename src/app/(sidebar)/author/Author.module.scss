@@ -22,8 +22,8 @@
         min-height: 60vh;
     }
     .image{
-        width: 160px;
-        height: 160px;
+        width: 10rem;
+        height: 10rem;
 
         object-fit: cover;
         border-radius: 12px;
@@ -116,4 +116,20 @@
         line-height: 1.75rem;
     }
 
+}
+
+
+@media screen and (max-width: 530px){
+    .author{
+        .content{
+            width: 100%;
+        }
+        .container{
+            padding: 2rem 1rem;
+        }
+        .image{
+            width: 8rem;
+            height: 8rem;
+        }
+    }
 }

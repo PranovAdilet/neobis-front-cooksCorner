@@ -5,11 +5,10 @@ import styles from './ManageProfile.module.scss'
 import {Button} from "@/components/ui/button/Button";
 import FileInput from "@/components/ui/file-input/FileInput";
 import {useUpdateProfile} from "@/components/manage-profile/useUpdateProfile";
-import {useProfile} from "@/hooks/user/useProfile";
 import {IUser} from "@/types/auth.types";
 import {useInitialData} from "@/components/manage-profile/useInitialData";
-import {Simulate} from "react-dom/test-utils";
-import reset = Simulate.reset;
+import {IoCloseCircleSharp} from "react-icons/io5";
+
 
 interface IProps{
     setIsOpen: Dispatch<SetStateAction<boolean>>
@@ -64,9 +63,11 @@ const ManageProfile = ({setIsOpen, user} : IProps) => {
             />{errors.bio && <p className={styles.error}>{errors.bio.message}</p>}
 
             <p className={styles.subtitle}>Add a recipe photo</p>
-            <FileInput register={register} selectedFile={image} setSelectedFile={setImage} />
+            <FileInput register={register} selectedFile={image} setSelectedFile={setImage}/>
 
-            <Button type="submit" disabled={isLoading || !isValid} onClick={handleClose} className={styles.button}>Save changes</Button>
+            <Button type="submit" disabled={isLoading || !isValid} onClick={handleClose} className={styles.button}>Save
+                changes</Button>
+            <span onClick={handleClose} className={styles.close}><IoCloseCircleSharp/></span>
         </form>
     );
 };

@@ -58,5 +58,15 @@
   transform: translateX(-30%);
   z-index: 30;
 }
+.profile .close {
+  position: absolute;
+  top: 2rem;
+  right: 2.2rem;
+  font-size: 2.1rem;
+  cursor: pointer;
+}
+.profile .close:hover {
+  transform: scale(107%);
+}
 
 /*# sourceMappingURL=ManageProfile.module.css.map */

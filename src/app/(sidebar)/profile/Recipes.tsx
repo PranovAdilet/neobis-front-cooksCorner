@@ -26,8 +26,8 @@ const Recipes = () => {
                     isLoading && <Skeletons count={12} className=""/>
                 }
                 {
-                    data?.map((item, idx) => (
-                        <Card key={idx} type="big" item={item}/>
+                    data?.map((item) => (
+                        <Card key={item.recipeId} type="big" item={item}/>
                     ))
                 }
             </div>

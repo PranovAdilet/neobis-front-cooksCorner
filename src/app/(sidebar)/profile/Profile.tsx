@@ -10,26 +10,31 @@ import ManageProfile from "@/components/manage-profile/ManageProfile";
 import {useProfile} from "@/hooks/user/useProfile";
 import {useParams} from "next/navigation";
 import Recipes from "@/app/(sidebar)/profile/Recipes";
-import Loader from "@/components/ui/loader/Loader";
 import UserInfo from "@/app/(sidebar)/author/UserInfo";
-import {useInitialData} from "@/components/manage-profile/useInitialData";
+import LogoutProfile from "@/app/(sidebar)/profile/LogoutProfile";
+import ProfileSkeleton from "@/components/ui/skeleton/ProfileSkeleton";
 
 const Profile = () => {
     const [isOpen, setIsOpen] = useState(false)
     const handleOpen = () => setIsOpen(true)
     const {id} = useParams()
 
-    const {data , isSuccess} = useProfile(+id || 0)
+    const {data , isSuccess, isLoading} = useProfile(+id || 0)
 
 
     return (
         <section className={styles.profile}>
+
             <ModalContainer classname={styles.modal} isOpen={isOpen} setIsOpen={setIsOpen}>
                 <ManageProfile user={data} setIsOpen={setIsOpen}/>
             </ModalContainer>
+
             {
-                data && isSuccess && <div className="container">
-                    <div className="text-center mb-8">
+                isLoading && <ProfileSkeleton/>
+            }
+            {
+                data && isSuccess && <div className={styles.row}>
+                    <div className={styles.title}>
                         <Title>Profile</Title>
                     </div>
                     <div className={styles.content}>
@@ -49,6 +54,8 @@ const Profile = () => {
                     <Recipes/>
                 </div>
             }
+
+           <LogoutProfile/>
         </section>
     );
 };

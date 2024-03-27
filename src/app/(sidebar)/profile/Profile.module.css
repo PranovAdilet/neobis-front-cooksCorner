@@ -1,9 +1,20 @@
+.profile {
+  position: relative;
+}
 .profile .container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 3.5rem 2rem 8.3rem;
+}
+.profile .title {
+  text-align: center;
+  margin-bottom: 1.8rem;
+}
+.profile .row {
+  width: 100%;
+  padding: 2rem;
 }
 .profile .content {
   text-align: center;
@@ -19,8 +30,8 @@
   padding: 0 2.5rem;
 }
 .profile .image {
-  width: 200px;
-  height: 200px;
+  width: 12.5rem;
+  height: 12.5rem;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -90,8 +101,55 @@
   color: rgb(52, 52, 52);
 }
 
+.logout {
+  display: none;
+  position: absolute;
+  top: 1.2rem;
+  right: 1rem;
+  font-size: 1.3rem;
+  color: #8A8A8A;
+}
+.logout:hover {
+  color: red;
+}
+
 .modal {
   max-width: 544px;
+}
+
+@media screen and (max-width: 650px) {
+  .profile .row {
+    padding: 1rem;
+  }
+  .profile .image {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .profile .title {
+    text-align: left;
+  }
+  .profile .content {
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+  .profile .content__info {
+    width: auto;
+    padding: 0 1rem;
+  }
+  .profile .content .name {
+    margin-top: 0.6rem;
+  }
+  .profile .image {
+    width: auto;
+    min-width: 7rem;
+    min-height: 7rem;
+    height: auto;
+  }
+  .logout {
+    display: block;
+  }
 }
 
 /*# sourceMappingURL=Profile.module.css.map */

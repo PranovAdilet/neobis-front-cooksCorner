@@ -120,16 +120,29 @@
     width: calc(33.33% - 12px);
   }
 }
+@media screen and (max-width: 850px) {
+  .searchCard {
+    width: calc(33.33% - 0.8rem);
+    min-width: 180px;
+  }
+}
 @media screen and (max-width: 650px) {
   .card {
     width: calc(50% - 0.5rem);
     max-height: 11rem;
   }
+  .searchCard {
+    width: calc(50% - 0.5rem);
+    min-width: 180px;
+  }
 }
 @media screen and (max-width: 450px) {
   .card {
-    width: 270px;
+    width: 16.8rem;
     max-height: 11rem;
+  }
+  .searchCard {
+    width: 16.8rem;
   }
 }
 

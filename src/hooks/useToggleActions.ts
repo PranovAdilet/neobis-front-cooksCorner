@@ -13,6 +13,8 @@ export function useToggleActions(type: string) {
         onSuccess:  async () => {
             if (type === "recipes"){
                 await queryClient.invalidateQueries({queryKey: [KEYS.details]})
+                await queryClient.invalidateQueries({queryKey: [KEYS.profile_type_recipes]})
+
             }else{
                 await queryClient.invalidateQueries(KEYS.comments as InvalidateQueryFilters)
             }

@@ -13,10 +13,10 @@ import {AuthTokensService} from "@/services/auth-token.service";
 import {DASHBOARD_PAGES} from "@/config/pages-url.config";
 import clsx from "clsx";
 import {useEffect, useState} from "react";
-import Loader from "@/components/ui/loader/Loader";
 import UserInfo from "@/app/(sidebar)/author/UserInfo";
 import UserRecipes from "@/app/(sidebar)/author/UserRecipes";
 import Back from "@/components/ui/back/Back";
+import AuthorSkeleton from "@/components/ui/skeleton/AuthorSkeleton";
 
 
 const Author = () => {
@@ -61,7 +61,7 @@ const Author = () => {
     return (
         <>
             {
-                isLoadingProfile && <Loader/>
+                isLoadingProfile && <AuthorSkeleton/>
             }
             <section className={styles.author}>
                 <Back/>

@@ -11,6 +11,8 @@ import MenuButton from "@/components/comments/ui/MenuButton";
 import clsx from "clsx";
 import EditForm from "@/components/comments/ui/Replies/EditForm";
 import {AuthTokensService} from "@/services/auth-token.service";
+import Link from "next/link";
+import {ROUTES} from "@/config/pages-url.config";
 
 
 const ReplyItem = ({item} : {item: IComment}) => {
@@ -26,13 +28,15 @@ const ReplyItem = ({item} : {item: IComment}) => {
     return (
         <div className="flex justify-between w-full gap-2 relative">
             <div className={styles.reply}>
-                <div className={styles.reply__left}>
+                <Link href={ROUTES.AUTHOR + `/${item.authorId}`} className={styles.reply__left}>
                     <Image className={styles.image} src={item.imageUrl || avatar} alt="avatar" width={200}
                            height={200}/>
-                </div>
+                </Link>
                 <div className={styles.content}>
                     <div className={styles.content__top}>
-                        <h4 className={styles.replyAuthor}>{item.author}</h4>
+                        <Link href={ROUTES.AUTHOR + `/${item.authorId}`} className={styles.replyAuthor}>
+                            {item.author}
+                        </Link>
                         <p className={styles.replyTime}>{date}</p>
                     </div>
                     {

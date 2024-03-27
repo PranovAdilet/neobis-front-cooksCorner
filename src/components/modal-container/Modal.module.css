@@ -5,7 +5,7 @@
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: 20;
+  z-index: 10000;
 }
 .overlay .popup {
   position: absolute;
@@ -17,6 +17,7 @@
   width: 100%;
   max-height: 90vh;
   overflow: hidden;
+  z-index: 10000000;
   overflow-y: auto;
 }
 .overlay .popup::-webkit-scrollbar {
@@ -33,6 +34,14 @@
   transition: 0.4s;
   opacity: 1;
   display: block;
+}
+
+@media screen and (max-width: 650px) {
+  .overlay .popup {
+    left: 50%;
+    width: 100%;
+    max-width: none;
+  }
 }
 
 /*# sourceMappingURL=Modal.module.css.map */

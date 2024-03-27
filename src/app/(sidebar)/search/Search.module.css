@@ -128,4 +128,28 @@
   height: 200px !important;
 }
 
+@media screen and (max-width: 850px) {
+  .skeleton {
+    width: calc(33.33% - 0.8rem) !important;
+    min-width: 180px !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .search .container {
+    padding: 1rem 1rem 2rem;
+  }
+  .search .cards {
+    justify-content: center;
+  }
+  .skeleton {
+    width: calc(50% - 0.5rem) !important;
+    min-width: 180px !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .skeleton {
+    width: 16.8rem !important;
+  }
+}
+
 /*# sourceMappingURL=Search.module.css.map */
