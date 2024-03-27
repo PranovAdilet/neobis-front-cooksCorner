@@ -114,7 +114,6 @@ const CreateRecipe = ({setIsOpen} : {setIsOpen : (state: boolean) => void}) => {
                 <div className=" relative ">
                     <p className={styles.subtitle}>Category of meal</p>
                     <SelectCategory
-                        {...register('category')}
                         select={category}
                         setSelect={setCategory}
                         array={CATEGORIES_ARRAY}

@@ -59,46 +59,48 @@ const Author = () => {
     }
 
     return (
-        <section className={styles.author}>
-            <Back/>
+        <>
             {
                 isLoadingProfile && <Loader/>
             }
-            <div className={styles.container}>
-                {
-                    data && <div className={styles.content}>
-                        <Image src={data.imageUrl || avatar} width={160} height={160} className={styles.image} priority={true} alt="avatar"/>
-                        <h4 className={styles.name}>{data.name}</h4>
+            <section className={styles.author}>
+                <Back/>
+                <div className={styles.container}>
+                    {
+                        data && <div className={styles.content}>
+                            <Image src={data.imageUrl || avatar} width={160} height={160} className={styles.image} priority={true} alt="avatar"/>
+                            <h4 className={styles.name}>{data.name}</h4>
 
-                        <UserInfo data={data}/>
+                            <UserInfo data={data}/>
 
-                        <p className={styles.text}>{data.bio}</p>
-                        {
-                            !isFollow &&
+                            <p className={styles.text}>{data.bio}</p>
+                            {
+                                !isFollow &&
 
-                            <Button onClick={handleFollow}
-                                disabled={isLoading}
-                                className={styles.btn}>
-                                {isProfileId()}
-                            </Button>}
-                        {
-                            isFollow &&
+                                <Button onClick={handleFollow}
+                                        disabled={isLoading}
+                                        className={styles.btn}>
+                                    {isProfileId()}
+                                </Button>}
+                            {
+                                isFollow &&
 
-                            <Button
-                                onClick={handleFollow}
-                                disabled={isLoading}
-                                className={clsx(styles.btn_active, styles.btn)}
-                            >
-                                Followed
-                                <Image src={check} width={25} height={25} alt="icon_check"/>
-                            </Button>
-                        }
-                    </div>
-                }
+                                <Button
+                                    onClick={handleFollow}
+                                    disabled={isLoading}
+                                    className={clsx(styles.btn_active, styles.btn)}
+                                >
+                                    Followed
+                                    <Image src={check} width={25} height={25} alt="icon_check"/>
+                                </Button>
+                            }
+                        </div>
+                    }
 
-               <UserRecipes id={id}/>
-            </div>
-        </section>
+                    <UserRecipes id={id}/>
+                </div>
+            </section>
+        </>
     );
 };
 

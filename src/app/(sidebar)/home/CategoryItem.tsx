@@ -14,11 +14,13 @@ const CategoryItem = ({item, category, setCategory} : IProps) => {
     const handleCategory = () => setCategory(item.post)
 
     return (
-        <li
-            onClick={handleCategory}
-            className={clsx(styles.item, category === item.post && styles.item_active)}
-        >
-            {item.view}
+        <li>
+            <button
+                onClick={handleCategory}
+                className={clsx(styles.item, category === item.post && styles.item_active)}
+            >
+                {item.view}
+            </button>
         </li>
     );
 };

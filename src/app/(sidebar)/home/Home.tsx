@@ -15,8 +15,8 @@ const Home = () => {
 
     return (
         <section className={styles.home}>
-            <div className="container">
-                <h2 className={styles.title}>Hi, Sarthak. UI Designer & Cook</h2>
+            <div className={styles.container}>
+                <h2 className={styles.title}>Hi, Brother. UI Designer & Cook</h2>
                 <Title>Category</Title>
                 <ul className={styles.list}>
                     {

@@ -16,10 +16,12 @@ import MenuButton from "@/components/comments/ui/MenuButton";
 import {AuthTokensService} from "@/services/auth-token.service";
 import EditForm from "@/components/comments/ui/Replies/EditForm";
 
+
 interface IProps{
     item: IComment
     id: string | string[]
 }
+
 
 const CommentItem = ({item, id} : IProps) => {
     const [isReply, setIsReply] = useState(false)
@@ -58,7 +60,11 @@ const CommentItem = ({item, id} : IProps) => {
                     }
                     {
                         !edit && <div className={styles.content__bottom}>
-                            <LikeButtons likes={item.likeCount} isLiked={item.isLiked} commentId={item.commentId}/>
+                            <LikeButtons
+                                likes={item.likeCount}
+                                isLiked={item.isLiked}
+                                commentId={item.commentId}
+                            />
                             <button
                                 onClick={handleOpen}
                                 type="button"

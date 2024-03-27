@@ -24,7 +24,7 @@ export function useRegisterForm() {
         mutationFn: authService.register,
         onSuccess(){
             toast.success('Successfully register!')
-            reset();
+            reset()
             router.push(ROUTES.CONFIRMATION);
         },
         onError(error){
@@ -34,7 +34,6 @@ export function useRegisterForm() {
     });
 
     const errorMessage = signUpMutation.error ? "Registration is failed" : undefined;
-
 
     return {
         watch,

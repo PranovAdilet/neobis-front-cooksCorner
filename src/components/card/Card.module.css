@@ -2,7 +2,6 @@
   width: 18.87rem;
   position: relative;
   cursor: pointer;
-  min-width: 249px;
   height: 13rem;
   text-shadow: 2px 2px 4px rgb(0, 0, 0);
   transition: all 0.2s;
@@ -114,6 +113,24 @@
 .searchCard .icon {
   font-size: 1.3rem;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+  .card {
+    width: calc(33.33% - 12px);
+  }
+}
+@media screen and (max-width: 650px) {
+  .card {
+    width: calc(50% - 0.5rem);
+    max-height: 11rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .card {
+    width: 270px;
+    max-height: 11rem;
+  }
 }
 
 /*# sourceMappingURL=Card.module.css.map */

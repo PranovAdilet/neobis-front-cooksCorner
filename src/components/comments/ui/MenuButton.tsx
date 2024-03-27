@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import styles from "@/components/comments/Comments.module.scss";
 import clsx from "clsx";
 import {useUpdateAndRemoveComment} from "@/hooks/user/useComment";
@@ -22,6 +22,19 @@ const MenuButton = ({isOpen, setIsOpen, className, id, setEdit, type} : IProps) 
         setIsOpen(false)
         remove(id)
     }
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (ref.current && !ref.current.contains(e.target as Node)) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [isOpen, setIsOpen]);
 
     const classNameMenu = clsx({
         [styles.menu]: isOpen,

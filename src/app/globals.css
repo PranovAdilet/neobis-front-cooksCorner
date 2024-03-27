@@ -38,11 +38,6 @@ body {
   font-weight: 600;
 }
 
-.container {
-  width: 100%;
-  padding: 2rem 2rem 8rem;
-}
-
 @media (hover: none) {
   .button:active {
     background-color: rgb(250, 158, 49);

@@ -1,5 +1,6 @@
 .detail {
   position: relative;
+  height: 100%;
 }
 .detail .image {
   max-height: 37vh;
@@ -128,6 +129,12 @@
   font-weight: 400;
   font-size: 0.9rem;
   line-height: 1.3rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .detail .content {
+    padding: 1rem;
+  }
 }
 
 /*# sourceMappingURL=Detail.module.css.map */

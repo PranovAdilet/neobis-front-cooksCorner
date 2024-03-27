@@ -12,9 +12,9 @@ export function useToggleActions(type: string) {
         mutationFn: (data: TypeBookmarkAndRecipe) => recipesService.toggleLikeDislikeBookmark(data),
         onSuccess:  async () => {
             if (type === "recipes"){
-                //await queryClient.invalidateQueries({queryKey: [KEYS.details]})
+                await queryClient.invalidateQueries({queryKey: [KEYS.details]})
             }else{
-                //await queryClient.invalidateQueries(KEYS.comments as InvalidateQueryFilters)
+                await queryClient.invalidateQueries(KEYS.comments as InvalidateQueryFilters)
             }
         },
         onError(error){

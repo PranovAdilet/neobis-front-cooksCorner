@@ -27,10 +27,6 @@ export const CATEGORIES: TypeCategories[] = [
     {
         view: 'Beverages',
         post: '7'
-    },
-    {
-        view: 'Main dishes',
-        post: '8'
     }
 ]
 

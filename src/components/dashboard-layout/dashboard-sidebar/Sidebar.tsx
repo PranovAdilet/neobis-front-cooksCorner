@@ -24,7 +24,7 @@ const Sidebar = () => {
 
     return (
         <aside className={styles.sidebar}>
-            <div>
+            <div className={styles.sidebar__block}>
                 <div className={styles.logo}>
                     <Image src={isActive ? logo : logoDark} alt="logo"/>
                     <p className={clsx(styles.logo__text, !isActive && styles.logo__text_active)}>CooksCorner</p>
@@ -38,7 +38,7 @@ const Sidebar = () => {
                     }
                 </ul>
             </div>
-            <button onClick={handleOpen} className={clsx(styles.item)}>
+            <button onClick={handleOpen} className={clsx(styles.item, styles.logout)}>
                 <span className="text-red-500 text-1.5xl">
                     <FiLogOut/>
                 </span>

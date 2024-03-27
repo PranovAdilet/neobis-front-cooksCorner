@@ -26,7 +26,7 @@ const AddComment = ({isReply, setIsReply, id, type, placeholder, recipeId} : IPr
 
     const [text, setText] = useState('')
     const [isOpen, setIsOpen] = useState(false)
-    console.log(isReply)
+
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => setText(e.target.value)
     const handleClose = () => {
         if (type === "comment"){
@@ -100,7 +100,7 @@ const AddComment = ({isReply, setIsReply, id, type, placeholder, recipeId} : IPr
                                         <Button
                                             disabled={!text.length || isLoading}
                                             type="submit"
-                                            className={styles.btn}>Leave a comment
+                                            className={styles.btn}>{!isLoading ? "Leave a comment" : "Loading"}
                                         </Button>
                                         :
                                         <Button

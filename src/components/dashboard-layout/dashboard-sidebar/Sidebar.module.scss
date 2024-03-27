@@ -9,7 +9,6 @@
   padding: 20px 10px 48px;
 
 
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   height: 100vh;
@@ -115,6 +114,93 @@
     &:hover{
       color: rgb(250, 250, 250);
       background: rgb(250, 158, 49);
+    }
+  }
+}
+
+.parent{
+  display: grid;
+  grid-template-columns: 6rem auto;
+}
+
+@media screen and (max-width: 1000px){
+
+  .parent{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .sidebar{
+    justify-content: center;
+    flex-direction: row;
+    column-gap: 5rem;
+
+    padding: 20px 10px;
+
+
+    bottom: 0;
+    height: auto;
+    width: 100%;
+
+    background: white;
+    box-shadow: 0 4px 29.1px 7px #00000040;
+
+    .list{
+      flex-direction: row;
+      column-gap: 1.4rem;
+    }
+    .logo{
+      display: none;
+    }
+    .line{
+      display: none;
+    }
+
+    .item{
+      background: #fafafa;
+      border-radius: 10px;
+      padding: 0.7rem;
+      text-align: center;
+
+    }
+    .icon{
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 500px){
+  .sidebar{
+    justify-content: center;
+    flex-direction: row;
+    column-gap: 5rem;
+
+    padding: 0.7rem 0.5rem;
+
+
+    bottom: 0;
+    height: auto;
+    width: 100%;
+
+    background: white;
+    box-shadow: 0 4px 29.1px 7px #00000040;
+
+    .list{
+      flex-direction: row;
+      column-gap: 1.4rem;
+    }
+    .logout{
+      display: none;
+    }
+
+    .item{
+      background: none;
+      border-radius: 10px;
+      padding: 0.7rem;
+      text-align: center;
+
+    }
+    .icon{
+      font-size: 1.3rem;
     }
   }
 }

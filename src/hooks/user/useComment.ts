@@ -49,7 +49,6 @@ export function useAddReply(
 
     return {
         mutate: () => {
-            console.log(type === "reply")
             const newData = {
                 isReply: type === "reply",
                 text,
