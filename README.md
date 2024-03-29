@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cooks-Corner
+
+Cooks-Corner is a web application for searching recipes, exchanging culinary ideas, and social interaction with other users. Here you can find various recipes, rate them, add them to bookmarks, leave comments, and much more.
+
+## Features
+
+- **Recipe Search:** Users can search for recipes using keywords.
+- **Category Navigation:** Users can browse recipes by categories.
+- **Authentication:** Users can authenticate to the platform.
+- **Likes and Bookmarks:** Users can like recipes and add them to bookmarks.
+- **Comments:** Users can leave comments on recipes.
+- **Likes on Comments:** Users can like comments left on recipes.
+- **Comment Replies:** Users can reply to comments.
+- **Profile Pages:** Users have profile pages where they can view followers/following, edit their profile data, and view their own recipes.
+- **Create Recipes:** Users can create their own recipes.
+
+## Technologies Used
+
+- **Frontend:** React.js, Next.js, SCSS Modules, Tailwind CSS
+- **Backend:** Java
+- **Authentication:** JSON Web Tokens (JWT)
+- **State Management:** React Query
+- **Other Libraries:** Axios, React Hook Form, etc.
 
 ## Getting Started
 
-First, run the development server:
+To run this project locally, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```
+   git clone https://github.com/PranovAdilet/neobis-front-cooksCorner.git
+    ```
+2. Install dependencies:
 
-You can start editing the page by modifying `app/home.tsx`. The page auto-updates as you edit the file.
+    ```
+   npm install
+   ```
+3. Start the development server:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+    ```
+   npm run dev
+   ```
+## Contributing
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
-## Learn More
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: git checkout -b feature-name
+3. Commit your changes: git commit -m 'Add some feature'
+4. Push to the branch: git push origin feature-name
+5. Submit a pull request.
 
-To learn more about Next.js, take a look at the following resources:
+## Authors
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Frontend:** [Pranov Adilet](https://github.com/PranovAdilet)
+- **Backend:** [Yerokha312](https://github.com/yerokha312)
