@@ -1,6 +1,6 @@
 # Cooks-Corner
 
-Cooks-Corner is a web application where users can search for recipes, browse by categories, authenticate, like recipes, add them to bookmarks, leave comments, like comments, reply to comments, delete or edit them. There are user profile pages where users can view followers/following, edit their profile data, and create their own recipes.
+Cooks-Corner is a web application for searching recipes, exchanging culinary ideas, and social interaction with other users. Here you can find various recipes, rate them, add them to bookmarks, leave comments, and much more.
 
 ## Features
 
