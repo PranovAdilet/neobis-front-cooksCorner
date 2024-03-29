@@ -53,4 +53,4 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 ## Authors
 
 Frontend: Pranov Adilet
-Backend: Yerokha312(https://github.com/yerokha312)
+Backend: [Yerokha312](https://github.com/yerokha312)
