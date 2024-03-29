@@ -19,13 +19,16 @@ const Detail = () => {
 
     const {id} = useParams()
 
-    const {data} = useDetailsRecipe(+id || 0)
+    const {data, isLoading} = useDetailsRecipe(+id || 0)
 
     const [comment, setComment] = useState(true)
 
     return (
         <section className={styles.detail}>
             <Back/>
+            {
+                isLoading && <div className={styles.detail}></div>
+            }
             {
                 data && <>
                     <Image priority={true} className={styles.image} src={data.imageUrl} width={800} height={800} alt="detailImage"/>

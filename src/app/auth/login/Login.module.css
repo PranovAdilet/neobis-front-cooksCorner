@@ -1,5 +1,7 @@
 .login {
-  @apply bg-primary w-full text-center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .login__block {
   display: flex;

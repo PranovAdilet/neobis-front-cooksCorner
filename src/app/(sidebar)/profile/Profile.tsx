@@ -19,7 +19,7 @@ const Profile = () => {
     const handleOpen = () => setIsOpen(true)
     const {id} = useParams()
 
-    const {data , isSuccess, isLoading} = useProfile(+id || 0)
+    const {data , isSuccess, isLoading, isError} = useProfile(+id || 0)
 
 
     return (
@@ -53,6 +53,10 @@ const Profile = () => {
                     </div>
                     <Recipes/>
                 </div>
+            }
+            {
+                isError && <h2>Sorry, the server is temporarily unavailable.
+                    Please contact the project author for assistance.</h2>
             }
 
            <LogoutProfile/>

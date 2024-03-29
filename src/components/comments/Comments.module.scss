@@ -158,6 +158,8 @@
   .left{
     width: 40px;
     height: 40px;
+    min-width: 40px;
+    min-height: 40px;
 
     cursor: pointer;
   }
@@ -219,6 +221,13 @@
 
   column-gap: 1rem;
   transition: all .9s;
+}
+.parent{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+  position: relative;
 }
 
 .reply{
@@ -445,3 +454,19 @@
   transition: all 0.7s;
 }
 
+
+
+@media screen and (max-width: 400px) {
+    .comments{
+      .replyAuthor, .author{
+        font-size: 1rem;
+      }
+      .button{
+        padding: 0.3rem 0.7rem;
+      }
+      .time{
+        font-size: 0.8rem;
+      }
+    }
+
+}

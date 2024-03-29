@@ -22,7 +22,6 @@ import AuthorSkeleton from "@/components/ui/skeleton/AuthorSkeleton";
 const Author = () => {
     const {id} = useParams()
 
-
     const {data, isLoading : isLoadingProfile} = useProfile(+id || 0)
 
     const {mutate, isLoading} = useFollow()

@@ -26,7 +26,7 @@ const ReplyItem = ({item} : {item: IComment}) => {
     const handleMenu = () => setMenu(!menu)
 
     return (
-        <div className="flex justify-between w-full gap-2 relative">
+        <div className={styles.parent}>
             <div className={styles.reply}>
                 <Link href={ROUTES.AUTHOR + `/${item.authorId}`} className={styles.reply__left}>
                     <Image className={styles.image} src={item.imageUrl || avatar} alt="avatar" width={200}

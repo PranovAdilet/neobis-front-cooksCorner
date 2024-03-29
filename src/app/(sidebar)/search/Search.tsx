@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useState} from 'react';
+import {useState} from 'react';
 import styles from "@/app/(sidebar)/search/Search.module.scss";
 import Title from "@/components/ui/title/Title";
 import {Button} from "@/components/ui/button/Button";
@@ -11,7 +11,7 @@ import SearchField from "@/app/(sidebar)/search/ui/SearchField";
 import {useSearchUsers} from "@/hooks/useSearch";
 import {useDebounce} from "@/hooks/useDebounce";
 import {IType} from "@/app/(sidebar)/search/types/search.interface";
-import {useRecipes, useSearchRecipes} from "@/hooks/recipes/useRecipes";
+import {useSearchRecipes} from "@/hooks/recipes/useRecipes";
 import Card from "@/components/card/Card";
 import Skeletons from "@/components/ui/skeleton/Skeletons";
 

@@ -30,7 +30,7 @@ export const CATEGORIES: TypeCategories[] = [
     }
 ]
 
-export const CATEGORIES_ARRAY = ['breakfast', 'main dishes', 'seafoods', 'beverages', 'salads', 'desserts', 'soups', "pasta"]
+export const CATEGORIES_ARRAY = ['breakfast', 'seafoods', 'beverages', 'salads', 'desserts', 'soups', "pasta"]
 
 export const DIFFICULTY = [
     "Easy", "Medium", "Hard"

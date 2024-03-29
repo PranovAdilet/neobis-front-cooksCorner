@@ -19,7 +19,6 @@ function ModalContainer({setIsOpen, isOpen, children, classname} : IProps) {
         [styles.none]: !isOpen,
     })
 
-
     const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => event.stopPropagation()
 
     return (

@@ -21,7 +21,7 @@ const Login = () => {
 
 
     return (
-        <div className="flex justify-center items-center">
+        <div className={styles.login}>
             <form className={styles.login__form} onSubmit={handleSubmit}>
                 <div className={styles.login__block}>
                     <Field

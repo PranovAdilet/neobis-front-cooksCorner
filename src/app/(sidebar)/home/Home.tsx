@@ -11,7 +11,7 @@ import Skeletons from "@/components/ui/skeleton/Skeletons";
 
 const Home = () => {
     const [category, setCategory] = useState('1')
-    const {data, isSuccess, isLoading} = useRecipes(category)
+    const {data, isSuccess, isLoading, isError } = useRecipes(category)
 
     return (
         <section className={styles.home}>
@@ -35,6 +35,9 @@ const Home = () => {
                         isSuccess && data?.map(item => (
                             <Card key={item.recipeId} item={item} type="big"/>
                         ))
+                    }
+                    {
+                        isError && <h2>Recipes not found</h2>
                     }
                 </div>
 

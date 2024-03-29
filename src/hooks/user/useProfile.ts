@@ -7,13 +7,13 @@ import {useEffect} from "react";
 import {authService} from "@/services/auth.service";
 
 export function useProfile(id: number) {
-    const { data, isLoading, isSuccess } = useQuery({
+    const { data, isLoading, isSuccess, isError } = useQuery({
         queryKey: [KEYS.profile, id],
         queryFn: () => userService.getUserById(id),
         enabled: !!id && id > 0
     })
 
-    return { data, isLoading, isSuccess }
+    return { data, isLoading, isSuccess, isError }
 }
 
 

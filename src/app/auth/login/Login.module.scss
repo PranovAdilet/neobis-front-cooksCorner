@@ -1,5 +1,7 @@
 .login {
-  @apply bg-primary w-full text-center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &__block{
     display: flex;
@@ -79,6 +81,7 @@
   }
 
 }
+
 
 .link{
   font-weight: 500;
