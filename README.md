@@ -52,5 +52,5 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 ## Authors
 
-- **Frontend:** Pranov Adilet
+- **Frontend:** [Pranov Adilet](https://github.com/PranovAdilet)
 - **Backend:** [Yerokha312](https://github.com/yerokha312)
