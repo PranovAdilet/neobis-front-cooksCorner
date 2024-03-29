@@ -16,7 +16,7 @@ Cooks-Corner is a web application where users can search for recipes, browse by 
 
 ## Technologies Used
 
-- **Frontend:** React.js, Next.js, Tailwind CSS
+- **Frontend:** React.js, Next.js, SCSS Modules, Tailwind CSS
 - **Backend:** Java
 - **Authentication:** JSON Web Tokens (JWT)
 - **State Management:** React Query
@@ -52,5 +52,5 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 ## Authors
 
-Frontend: Pranov Adilet
-Backend: [Yerokha312](https://github.com/yerokha312)
+- **Frontend:** Pranov Adilet
+- **Backend:** [Yerokha312](https://github.com/yerokha312)
